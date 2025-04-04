@@ -6,15 +6,15 @@ using UnityEngine.SceneManagement;
 public class BtnFunc : MonoBehaviour
 {
     [SerializeField] private GameObject _pauseMenu;
-    private bool _isPaused = false;
+    private bool _isPaued = false;
 
     public void Pause() 
     {
         
-        _isPaused = !_isPaused;
-        _pauseMenu.gameObject.SetActive(_isPaused);
+        _isPaued = !_isPaued;
+        _pauseMenu.gameObject.SetActive(_isPaued);
 
-        if (_isPaused == true)
+        if (_isPaued == true)
         {
             Time.timeScale = 0f;
         }
