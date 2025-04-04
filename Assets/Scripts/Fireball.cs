@@ -22,6 +22,7 @@ public class Fireball : MonoBehaviour
         transform.position += (Vector3)_direction * _speed * Time.deltaTime;
     }
 
+
     IEnumerator LifeTimeCrt() 
     {
         yield return new WaitForSeconds(_lifeTime);
