@@ -12,7 +12,6 @@ public class Fireball : MonoBehaviour
 
     private void Start()
     {
-       
         _animator = GetComponent<Animator>();
     }
 

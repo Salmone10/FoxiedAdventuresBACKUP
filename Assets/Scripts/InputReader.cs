@@ -7,6 +7,7 @@ public class InputReader : MonoBehaviour
 {
     private PlayerController _playerController;
     private FireballController _fireballController;
+    private ClawStrike _clawStrike;
 
     void Start()
     {
@@ -30,9 +31,9 @@ public class InputReader : MonoBehaviour
         if (parameter.started) { _playerController.Jump(); }
     }
 
-    public void OnMakingFireball(InputAction.CallbackContext parameter)
+    public void OnClawStriking(InputAction.CallbackContext parameter)
     {
-        if (parameter.started) { _fireballController.MakeFireball(); }
+        if (parameter.started) { _clawStrike.Strike(); }
     }
     public void OnTaunting(InputAction.CallbackContext parameter)
     {
