@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class ClawStrike : MonoBehaviour
 {
-    private Animator _animator;
+    [SerializeField] private Animator _clawsAnimator;
 
-    public void Start()
+    private Animator _playerAnimator;
+
+    private void Start()
     {
-        _animator = GetComponent<Animator>();
+        _playerAnimator = GetComponent<Animator>();     
     }
 
     public void Strike() 
     {
-        _animator.SetTrigger("strike");
+        _clawsAnimator.SetTrigger("strike");
+        _playerAnimator.SetTrigger("is_shooting");
     }
 
 }
