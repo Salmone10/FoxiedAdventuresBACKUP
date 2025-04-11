@@ -13,6 +13,7 @@ public class InputReader : MonoBehaviour
     {
         _playerController = GetComponent<PlayerController>();
         _fireballController = GetComponent<FireballController>();
+        _clawStrike = GetComponent<ClawStrike>();
     }
 
     public void OnMovement(InputAction.CallbackContext value)
