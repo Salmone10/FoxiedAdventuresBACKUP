@@ -10,6 +10,7 @@ TagManager:
   - Fireball
   - Enemy
   - Interative
+  - Claws
   layers:
   - Default
   - TransparentFX
