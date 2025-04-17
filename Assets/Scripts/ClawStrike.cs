@@ -15,13 +15,6 @@ public class ClawStrike : MonoBehaviour
 
     public void Strike() 
     {
-
-
-
-
-
-
-
         _clawsAnimator.SetTrigger("strike");
         _playerAnimator.SetTrigger("is_shooting");
     }
