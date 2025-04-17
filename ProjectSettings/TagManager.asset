@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Interative
   - Claws
+  - FoxPlayer
   layers:
   - Default
   - TransparentFX
