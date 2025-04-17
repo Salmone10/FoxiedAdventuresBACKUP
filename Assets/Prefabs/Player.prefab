@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 2800506064357758518}
   - component: {fileID: 7025694321463277715}
   - component: {fileID: 3960876954691076820}
-  - component: {fileID: 2934502170657771273}
   - component: {fileID: 4228975479260774762}
   - component: {fileID: 3919866674540309306}
   - component: {fileID: 7378004694317698010}
@@ -649,21 +648,6 @@ MonoBehaviour:
   _tempSpeed: 8
   _interactionResult:
   - {fileID: 0}
---- !u!114 &2934502170657771273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6088950494046578873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2788ea9990591d49b73f4573919665c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fireStartPoint: {fileID: 8584827354779305248}
-  _fireball: {fileID: -2747372783908993282, guid: 50362a1d594a09647b25e4dca15466d0, type: 3}
-  _ammoRecoveryTime: 1.5
 --- !u!114 &4228975479260774762
 MonoBehaviour:
   m_ObjectHideFlags: 0
