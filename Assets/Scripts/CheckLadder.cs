@@ -17,7 +17,6 @@ public class CheckLadder : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         _ladder = _collider2D.IsTouchingLayers(_ladderMask);
-        print("43234");
     }
 
     private void OnTriggerExit2D(Collider2D collision)
