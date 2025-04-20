@@ -26863,7 +26863,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1339848265
 Canvas:
   m_ObjectHideFlags: 0
@@ -29838,6 +29838,10 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: _interactionRadius
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4228975479260774762, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _pauseMenu
       value: 
@@ -29894,8 +29898,7 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3095108610213356527, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8584827354779305248, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
