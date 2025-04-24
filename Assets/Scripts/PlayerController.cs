@@ -166,7 +166,6 @@ public class PlayerController : MonoBehaviour
 
             if (interactObject != null)
             {
-                print("interact");
                 interactObject.InteractEvent();
             }
         }
