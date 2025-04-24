@@ -7,5 +7,13 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: squirrel_override_controller
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: f2b9139d8df0de340a02778f541412c8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c143ff340f8668f40bbae9fc37d0b861, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3f96c0dc9f199aa42a02a97fe9530347, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8a148290eec75c448ba73d5abe3bc793, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: bcddebd40770ad74da8b546a540dedbf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ade38f889d2b7d848a499cde0bc9a760, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d6f64d416347a9943b3942c608272906, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7d5ea6cfe46c4854a865a7a2c8c420df, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 08c06c47047761f41a23bc8e1f5f5d42, type: 2}

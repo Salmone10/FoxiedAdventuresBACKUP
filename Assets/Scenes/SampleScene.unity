@@ -26976,6 +26976,10 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 900479984}
+    - target: {fileID: 5679716572637294784, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 322c0a93c3fb3f24cb7ae6678e091dbc, type: 2}
     - target: {fileID: 6088950494046578873, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_Name
       value: SquirrelPlayer
@@ -26986,11 +26990,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8584827354779305248, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.32
+      value: 11.85
       objectReference: {fileID: 0}
     - target: {fileID: 8584827354779305248, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.62
+      value: 16.26
       objectReference: {fileID: 0}
     - target: {fileID: 8584827354779305248, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29846,6 +29850,10 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 900479984}
+    - target: {fileID: 5679716572637294784, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: d982adc1f440a3a4e86ce62dc33276f7, type: 2}
     - target: {fileID: 6088950494046578873, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_Name
       value: FoxPlayer
