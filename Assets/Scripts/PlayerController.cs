@@ -60,17 +60,6 @@ public class PlayerController : MonoBehaviour
         _enemySaver = GetComponent<EnemySaver>();
         _origColor = _spriteRenderer.color;
         _tempSpeed = _speed;
-        string testJson = "{\"score\":5}";
-
-        GameData testData = JsonUtility.FromJson<GameData>(testJson);
-
-        if (testData != null)
-
-            Debug.Log("Тестовая загрузка успешна: " + testData.score);
-
-        else
-
-            Debug.LogError("Ошибка: JsonUtility вернул null");
     }
 
     private void Update()
