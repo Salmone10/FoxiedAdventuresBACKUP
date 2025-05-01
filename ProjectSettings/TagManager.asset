@@ -12,6 +12,7 @@ TagManager:
   - Interative
   - Claws
   - FoxPlayer
+  - SquirrelPlayer
   layers:
   - Default
   - TransparentFX
