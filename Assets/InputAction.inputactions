@@ -2,7 +2,7 @@
     "name": "InputAction",
     "maps": [
         {
-            "name": "Player",
+            "name": "FoxPlayer",
             "id": "0f56abeb-2d93-4dba-ae6e-cf9d7aa8f4c6",
             "actions": [
                 {
@@ -15,15 +15,6 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Actions",
-                    "type": "Button",
-                    "id": "0dd1430b-dcff-4845-8f1b-53621ad31bd8",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "04e8f2e1-c17e-4936-bba3-c972ad337d6c",
@@ -33,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Make Fireball",
+                    "name": "Claw strike",
                     "type": "Button",
                     "id": "d0196847-10d3-4c1f-942f-cb0f0bd32982",
                     "expectedControlType": "Button",
@@ -45,15 +36,6 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "131c1ec3-7f42-48ed-8eb4-739d44d2fa82",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Taunt",
-                    "type": "Button",
-                    "id": "0b0d45f5-697e-4acc-aa28-fdaad5605cf3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -182,17 +164,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bdf8486d-b92b-4bfb-ac06-c7edd2f7d7e0",
-                    "path": "<Keyboard>/r",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Actions",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "97d82b2d-cecd-4871-b035-24aa9da8d4bc",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -209,7 +180,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Make Fireball",
+                    "action": "Claw strike",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -226,17 +197,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1da58c78-0265-440d-971b-948efe6c3d14",
-                    "path": "<Keyboard>/t",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Taunt",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "88ea72d3-cbaf-4893-8ec8-08588c27e958",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -245,6 +205,193 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SquirrelPlayer",
+            "id": "cfa9ab2b-b365-47fa-851f-ba2c31772cca",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "87f04c28-6650-497b-96dd-063b4078017d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "ea415853-6d6d-4cb7-af8a-aa654f3fa869",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "f4aba249-aa4a-40b2-b280-57cf4548a34c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "b28bfdca-b5da-4f20-af0a-e64f86b95960",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b4395225-587c-4e32-8ce1-bc1fac09062d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e88ffb93-5d71-4d91-8e3d-ceacd8c48f95",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1a7f564-4c09-4afb-8054-9777a5ee2cbf",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "eea0bfe4-8131-4b46-b279-af3fda9e1e7f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "3265e35b-14e3-4e84-a5b1-0b04d5f1a800",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a723c98a-13c7-4600-86a9-f45fe2190685",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "e25fc565-091c-4270-b902-61e06a7a9f7c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "178fed9a-82e7-4ae4-bff2-b481f1d83f4b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "f3309fe2-018e-4f5f-91f3-fcce79224962",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "3d9d56e1-93be-4000-9962-ee8c48fdfbdb",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "e7d83d89-232c-462b-934c-4212b296ccc2",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "7b2dc252-6041-410e-9604-db12a3f17bc5",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "468076c7-e162-4f6c-a255-c60e2a02a42e",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }
