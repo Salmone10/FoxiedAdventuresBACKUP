@@ -64,7 +64,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat("y_location", _rigidBody.velocity.y);
+        var infelicity = 0.1f;
+        var y_location = _rigidBody.velocity.y;
+
+        if (MathF.Abs(y_location) < infelicity) 
+        {
+            y_location = 0f;
+        }
+
+        _animator.SetFloat("y_location", y_location);
 
         if (_isRoll) return;
 
