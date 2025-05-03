@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
         var infelicity = 0.1f;
         var y_location = _rigidBody.velocity.y;
 
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //поворот игрока
         }
 
-        _animator.SetBool("is_on_ladder", _checkLadder._ladder);
+        if (!gameObject.CompareTag("SquirrelPlayer")) { _animator.SetBool("is_on_ladder", _checkLadder._ladder); }
         
         _animator.SetBool("is_ground", _checkGround._ground);
         _animator.SetBool("is_running", _direction.x != 0);
@@ -112,14 +113,17 @@ public class PlayerController : MonoBehaviour
 
     public void Ladder()
     {
-        if (_checkLadder._ladder)
+        if (!gameObject.CompareTag("SquirrelPlayer")) 
         {
-            _rigidBody.gravityScale = 0;
-            _rigidBody.velocity = new Vector2(_speed * _direction.x, _climbingSpeed * _direction.y);
-        }
-        else
-        {
-            _rigidBody.gravityScale = 5;
+            if (_checkLadder._ladder)
+            {
+                _rigidBody.gravityScale = 0;
+                _rigidBody.velocity = new Vector2(_speed * _direction.x, _climbingSpeed * _direction.y);
+            }
+            else
+            {
+                _rigidBody.gravityScale = 5;
+            }
         }
     }
 
