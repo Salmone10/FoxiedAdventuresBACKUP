@@ -29,7 +29,7 @@ public class InputReader : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext parameter)
     {
-        if (parameter.started) { _playerController.Jump(); }
+        if (parameter.performed) { _playerController.Jump(); }
     }
 
     public void OnClawStriking(InputAction.CallbackContext parameter)
