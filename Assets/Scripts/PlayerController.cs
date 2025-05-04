@@ -6,35 +6,36 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // настрйока персонажа
+    [Header("Common")]
     public float _speed;
     public float _jumpPower;
     public float _knockbackForce;
-    public float _climbingSpeed;
-    public float _rollSpeed;
+    public float _climbingSpeed; // dont include Squirrel
+    [SerializeField] public bool _isClimbing = false;
 
+    [Header("Damage (hurt) eff settings")]
     public float _colorFadeTime;
     public float _blinkingSpeed;
     public float _blinkingTime;
 
+    [Header("Squirrel player")]
     public float _rollTime;
+    public float _rollSpeed;
+    [SerializeField] public bool _isRoll = false;
 
+    [Header("Interactions")]
     public float _interactionRadius;
+    [SerializeField] public bool _isInteract = false;
 
     private Color _origColor;
 
-    [SerializeField] public bool _isRoll = false;
-    [SerializeField] public bool _isClimbing = false;
-    [SerializeField] public bool _isInteract = false;
-
-    // компоненты
+    // components
     private Rigidbody2D _rigidBody;
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
-
-    [SerializeField] private CheckGround _checkGround;
+    
     [SerializeField] private ContactFilter2D _interactLayer;
-
+    
     private CheckLadder _checkLadder;
     private FireballController _fireballController;
     private AudioSource _audioSource;
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _direction;
     public Vector2 Direction { set => _direction = value; }
+
+    [SerializeField] private CheckGround _checkGround;
     public CheckGround CheckGround { get => _checkGround; }
     public Collider2D[] _interactionResult = new Collider2D[1];
 
