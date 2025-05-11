@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public float _rollSpeed;
     [SerializeField] public bool _isRoll = false;
     [SerializeField] public bool _canRoll = true;
+    [SerializeField] public bool _isRollLocked = false;
 
     [Header("Interactions")]
     public float _interactionRadius;
@@ -52,6 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CheckGround _checkGround;
     public CheckGround CheckGround { get => _checkGround; }
     public Collider2D[] _interactionResult = new Collider2D[1];
+    [SerializeField] public ReloadScale _reloadScale;
 
     void Start()
     {
@@ -71,7 +73,8 @@ public class PlayerController : MonoBehaviour
     {   
         var infelicity = 0.1f;
         var y_location = _rigidBody.velocity.y;
-        _canRoll = true;
+
+        if (!_isRollLocked) { _canRoll = _checkGround._ground && _direction.x == 0 && !_isRoll; }
 
         if (MathF.Abs(y_location) < infelicity) 
         {
@@ -85,7 +88,6 @@ public class PlayerController : MonoBehaviour
         if (_direction.x != 0)
         {
             transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //поворот игрока
-            _canRoll = false;
         }
 
         if (!gameObject.CompareTag("SquirrelPlayer")) { _animator.SetBool("is_on_ladder", _checkLadder._ladder); }
@@ -183,7 +185,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator RollingCrt()
     {
         _isRoll = true;
-        _canRoll = false;
 
         print(_isRoll);
         var rollDirection = Mathf.Sign(transform.lossyScale.x);
@@ -192,7 +193,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_rollTime);
 
         _isRoll = false;
-        _canRoll = true;
+
+        _reloadScale.Reload();
     }
 
     IEnumerator ChangeColor()
