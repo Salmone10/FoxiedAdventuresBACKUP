@@ -30,7 +30,7 @@ public class UserUi : MonoBehaviour
 
     public void HideHealthUnit()
     {
-        for (int i = 0; i < _healthManager._maxHealth; i++)
+        for (int i = 0; i < _cherryImages.Length; i++)
         {
             _cherryImages[i].gameObject.SetActive(false);
         }
