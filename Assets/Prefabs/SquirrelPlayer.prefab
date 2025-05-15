@@ -29,7 +29,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6176070342200835626
 Transform:
   m_ObjectHideFlags: 0
@@ -44,6 +44,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4075699753856535623}
+  - {fileID: 4876526330089226932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2001752494727067420
@@ -298,8 +299,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _currentHealth: 5
-  _maxHealth: 5
+  _currentHealth: 3
+  _maxHealth: 3
   _invincibleTime: 2
   _invincible: 0
 --- !u!114 &1429481431656108511
@@ -365,20 +366,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d077023aad9e6640886415983c8772b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8
-  _jumpPower: 200
+  _speed: 12
+  _jumpPower: 240
   _knockbackForce: 6
   _climbingSpeed: 5
-  _rollSpeed: 12
+  _isClimbing: 0
   _colorFadeTime: 1
   _blinkingSpeed: 0.1
   _blinkingTime: 2
-  _rollTime: 0.3
-  _interactionRadius: 3
+  _rollTime: 0.5
+  _rollSpeed: 16
   _isRoll: 0
-  _isClimbing: 0
-  _isInteract: 0
-  _checkGround: {fileID: 7896608165215071368}
+  _canRoll: 1
+  _isRollLocked: 0
+  _interactionRadius: 3
+  _isInteract: 1
   _interactLayer:
     useTriggers: 1
     useLayerMask: 1
@@ -394,8 +396,10 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   _tempSpeed: 8
+  _checkGround: {fileID: 7896608165215071368}
   _interactionResult:
   - {fileID: 0}
+  _reloadScale: {fileID: 6085505840621661774}
 --- !u!114 &1453785850581188306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,13 +551,13 @@ MonoBehaviour:
     m_ActionName: SquirrelPlayer/Interact[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2184359904229542559}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1453785850581188306}
+        m_TargetAssemblyTypeName: BtnFunc, Assembly-CSharp
+        m_MethodName: Pause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -593,9 +597,25 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ea415853-6d6d-4cb7-af8a-aa654f3fa869
     m_ActionName: SquirrelPlayer/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8365456921394130533}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: OnRoll
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 58da0890-09bf-47d7-b714-942d3ec247f7
+    m_ActionName: SquirrelPlayer/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: FoxPlayer
+  m_DefaultActionMap: SquirrelPlayer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &4269579319029600706
@@ -625,7 +645,7 @@ Transform:
   m_GameObject: {fileID: 4269579319029600706}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0964, y: -0.9357, z: 0}
+  m_LocalPosition: {x: -0.0964, y: -0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -692,3 +712,50 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!1 &7395208152797771295
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4876526330089226932}
+  - component: {fileID: 6085505840621661774}
+  m_Layer: 0
+  m_Name: Scale
+  m_TagString: Untagged
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4876526330089226932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395208152797771295}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.32, y: 0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6176070342200835626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6085505840621661774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395208152797771295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3902f4df637ae88498c211c00bb066fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reloadTime: 3
+  _playerController: {fileID: 2062471585331572074}
+  _sliderImage: {fileID: 0}
