@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UserUi : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _textCountScore;
+    private TextMeshProUGUI _textCountScore;
+    private Transform _HPpanelPosition;
     [SerializeField] private GameObject _player;
 
     [SerializeField] private Image[] _cherryImages;
     [SerializeField] private Image[] _fireballImages;
+    [SerializeField] private GameObject _HPImagePrfb;
 
     private PlayerStatistic _playerStatistic;
     private HealthManager _healthManager;
@@ -19,6 +22,8 @@ public class UserUi : MonoBehaviour
     {
         _playerStatistic = GetComponent<PlayerStatistic>();
         _healthManager = GetComponent<HealthManager>();
+        _textCountScore = FindObjectOfType<ScoreTextNONE>().GetComponent<TextMeshProUGUI>();
+        _HPpanelPosition = FindObjectOfType<HPpanelNONE>().GetComponent<Transform>();
     }
 
     void Update()
@@ -30,14 +35,15 @@ public class UserUi : MonoBehaviour
 
     public void HideHealthUnit()
     {
-        for (int i = 0; i < _cherryImages.Length; i++)
+        /*for (int i = 0; i < _cherryImages.Length; i++)
         {
             _cherryImages[i].gameObject.SetActive(false);
-        }
+        }*/
 
         for (int i = 0; i < _healthManager._currentHealth; i++)
         {
-            _cherryImages[i].gameObject.SetActive(true);
+            // _cherryImages[i].gameObject.SetActive(true);
+            Instantiate(_HPImagePrfb, _HPpanelPosition); //////////////////
         }
     }
 
