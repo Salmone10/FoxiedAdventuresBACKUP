@@ -8,12 +8,14 @@ public class InputReader : MonoBehaviour
     private PlayerController _playerController;
     private FireballController _fireballController;
     private ClawStrike _clawStrike;
+    private VenomShooter _venomShooter;
 
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
         _fireballController = GetComponent<FireballController>();
         _clawStrike = GetComponent<ClawStrike>();
+        _venomShooter = GetComponent<VenomShooter>();
     }
 
     public void OnMovement(InputAction.CallbackContext value)
@@ -43,7 +45,11 @@ public class InputReader : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext parameter)
     {
-        
         if (parameter.started) { _playerController.Interact(); }
+    }
+
+    public void OnSpitting(InputAction.CallbackContext parameter)
+    {
+        if (parameter.started) { _venomShooter.Shoot(_playerController.Direction); }
     }
 }

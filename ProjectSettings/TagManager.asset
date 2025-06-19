@@ -13,6 +13,9 @@ TagManager:
   - Claws
   - FoxPlayer
   - SquirrelPlayer
+  - DragonPlayer
+  - SnakePlayer
+  - PhysTilemap
   layers:
   - Default
   - TransparentFX
@@ -25,7 +28,7 @@ TagManager:
   - ladder
   - iteractable
   - player
-  - 
+  - projectile
   - 
   - 
   - 

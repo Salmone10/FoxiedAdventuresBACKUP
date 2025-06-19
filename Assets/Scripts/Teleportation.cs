@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Teleportation : MonoBehaviour
 {
-    [SerializeField] private Transform _objectTransform;
+    private Transform _objectTransform;
     [SerializeField] private Transform _pointToTeleport;
     [SerializeField] private float _teleportationDelay;
+
+    private void Start()
+    {
+        _objectTransform = FindObjectOfType<PlayerController>().GetComponent<Transform>();
+    }
 
     public void Teleport()
     {

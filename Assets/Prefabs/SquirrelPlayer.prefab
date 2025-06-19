@@ -194,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca816d49d04b4df4696adb7f24fde5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textCountScore: {fileID: 0}
   _player: {fileID: 2184359904229542559}
   _cherryImages:
   - {fileID: 0}
@@ -211,6 +210,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _HPImagePrfb: {fileID: 3874079003937594961, guid: aa32e626f01874f47a27620b8b2e65bc, type: 3}
 --- !u!114 &4822394753870960247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 0
-  _fireballClipSize: 3
+  _fireballClipSize: 0
   _fireballAmmo: 0
 --- !u!114 &8365456921394130533
 MonoBehaviour:
@@ -763,4 +763,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reloadTime: 3
   _playerController: {fileID: 2062471585331572074}
-  _sliderImage: {fileID: 0}

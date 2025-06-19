@@ -1,187 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4441089004230863649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6711219767646872585}
-  - component: {fileID: 463772722293513946}
-  - component: {fileID: 3846917995033153153}
-  - component: {fileID: 2711169839436983354}
-  - component: {fileID: 7446936874207340941}
-  m_Layer: 0
-  m_Name: clawStrike
-  m_TagString: Claws
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6711219767646872585
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441089004230863649}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.68, y: -0.04, z: 0.4841264}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8584827354779305248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &463772722293513946
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441089004230863649}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.07637024, y: -0.24998856}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.0625, y: 2.5}
-    newSize: {x: 4.0625, y: 2.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4370422, y: 0.80771637}
-  m_EdgeRadius: 0
---- !u!95 &3846917995033153153
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441089004230863649}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92592e6fd9cce564298fb81fc56394b3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!212 &2711169839436983354
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441089004230863649}
-  m_Enabled: 0
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12c694ac31c53634fb915016cede8740, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 4.0625, y: 2.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &7446936874207340941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441089004230863649}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd37cde0c27c45240949b574d1a67eff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8492019079970089522, guid: 23b87f05e8f15a947a37d4d589d21d39, type: 3}
-        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
-        m_MethodName: Apply
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: -1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _tags:
-  - enemy
 --- !u!1 &5027692928596160797
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +11,7 @@ GameObject:
   - component: {fileID: 1991431505865031779}
   - component: {fileID: 2816008229874436662}
   - component: {fileID: 4500109580591451687}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: checker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5027692928596160797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0964, y: -0.9357, z: 0}
+  m_LocalPosition: {x: -0.0964, y: -0.521, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -300,14 +118,14 @@ GameObject:
   - component: {fileID: 4228975479260774762}
   - component: {fileID: 7378004694317698010}
   - component: {fileID: 7171063407710781703}
-  - component: {fileID: 8919634913133743211}
-  m_Layer: 0
+  - component: {fileID: 8010663788343205577}
+  m_Layer: 10
   m_Name: FoxPlayer
-  m_TagString: FoxPlayer
+  m_TagString: SnakePlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8584827354779305248
 Transform:
   m_ObjectHideFlags: 0
@@ -322,7 +140,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1991431505865031779}
-  - {fileID: 6711219767646872585}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9050631748166202037
@@ -366,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: -602841257
   m_SortingLayer: -4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 72de0c64f2c6a498096698322c976a67, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3b603eb226441940919d6402d54a8ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -402,7 +219,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &7238954177636482137
 CapsuleCollider2D:
@@ -436,8 +253,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08771467, y: -0.3273961}
-  m_Size: {x: 1.0172281, y: 1.334612}
+  m_Offset: {x: -0.08771467, y: -0.16870415}
+  m_Size: {x: 1.0172281, y: 1.0172281}
   m_Direction: 0
 --- !u!95 &5679716572637294784
 Animator:
@@ -449,7 +266,7 @@ Animator:
   m_GameObject: {fileID: 6088950494046578873}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: d982adc1f440a3a4e86ce62dc33276f7, type: 2}
+  m_Controller: {fileID: 22100000, guid: 705e9364da4f6ba429c24330b0771d88, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -472,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca816d49d04b4df4696adb7f24fde5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _textCountScore: {fileID: 0}
   _player: {fileID: 6088950494046578873}
   _cherryImages:
   - {fileID: 0}
@@ -489,6 +305,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _HPImagePrfb: {fileID: 3874079003937594961, guid: aa32e626f01874f47a27620b8b2e65bc, type: 3}
 --- !u!114 &745898136283175667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _score: 0
-  _fireballClipSize: 3
+  _fireballClipSize: 0
   _fireballAmmo: 0
 --- !u!114 &3021548614453556806
 MonoBehaviour:
@@ -852,12 +669,84 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 58da0890-09bf-47d7-b714-942d3ec247f7
     m_ActionName: SquirrelPlayer/Roll[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d5f4995d-8d5f-4871-bba3-918ac6647305
+    m_ActionName: SnakePlayer/Roll[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1ff8c42c-4316-4a5a-a4cc-0e4243db10e1
+    m_ActionName: SnakePlayer/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3960876954691076820}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 48a81608-87e5-4294-8771-cdd34044f74d
+    m_ActionName: SnakePlayer/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3021548614453556806}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9a243ec4-b91f-4832-935c-e50d7343652c
+    m_ActionName: SnakePlayer/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4228975479260774762}
+        m_TargetAssemblyTypeName: BtnFunc, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2dc59fad-39ea-44ef-8211-b65700df8455
+    m_ActionName: SnakePlayer/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3021548614453556806}
+        m_TargetAssemblyTypeName: InputReader, Assembly-CSharp
+        m_MethodName: OnSpitting
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 45991276-5cd1-4803-a858-82ee07e19413
+    m_ActionName: SnakePlayer/Shoot[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: FoxPlayer
+  m_DefaultActionMap: SnakePlayer
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8919634913133743211
+--- !u!114 &8010663788343205577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -866,7 +755,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6088950494046578873}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee0aa016192e9940ac631c52a917931, type: 3}
+  m_Script: {fileID: 11500000, guid: c7deec37c4d743344a4888f2211fa32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clawsAnimator: {fileID: 3846917995033153153}
+  _venomSpit: {fileID: 2698842839444904554, guid: 3769ca019acb8b54faa6bf0abf40d647, type: 3}
+  _shootForce: 10

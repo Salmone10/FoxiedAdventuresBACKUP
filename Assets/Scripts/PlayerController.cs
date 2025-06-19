@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float _interactionRadius;
     [SerializeField] public bool _isInteract = false;
 
+    [Header("Snake player")]
+
     private Color _origColor;
 
     // components
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public float _tempSpeed;
 
     private Vector2 _direction;
-    public Vector2 Direction { set => _direction = value; }
+    public Vector2 Direction { set => _direction = value; get => _direction; }
 
     [SerializeField] private CheckGround _checkGround;
     public CheckGround CheckGround { get => _checkGround; }

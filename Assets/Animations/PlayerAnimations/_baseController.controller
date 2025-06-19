@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: roll_squirrel
+  m_Name: roll
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 233e2f9359930834d8e7619b0c70b6c9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 79fbc433ad9d6a04794b7ccebca05120, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -676,7 +676,7 @@ AnimatorStateMachine:
     m_Position: {x: 480, y: -230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8977428734746968594}
-    m_Position: {x: 70, y: 30, z: 0}
+    m_Position: {x: 50, y: -20, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: 6489943766519357653}
@@ -685,8 +685,8 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 290, y: -360, z: 0}
-  m_EntryPosition: {x: 40, y: 210, z: 0}
-  m_ExitPosition: {x: -160, y: 210, z: 0}
+  m_EntryPosition: {x: 20, y: 210, z: 0}
+  m_ExitPosition: {x: -180, y: 210, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3302053464042640940}
 --- !u!1101 &9183563159929875112

@@ -9,6 +9,8 @@ public class UserUi : MonoBehaviour
 {
     private TextMeshProUGUI _textCountScore;
     private Transform _HPpanelPosition;
+    private GridLayoutGroup _HPpanelLayoutGroup;
+
     [SerializeField] private GameObject _player;
 
     [SerializeField] private Image[] _cherryImages;
@@ -24,43 +26,55 @@ public class UserUi : MonoBehaviour
         _healthManager = GetComponent<HealthManager>();
         _textCountScore = FindObjectOfType<ScoreTextNONE>().GetComponent<TextMeshProUGUI>();
         _HPpanelPosition = FindObjectOfType<HPpanelNONE>().GetComponent<Transform>();
+        _HPpanelLayoutGroup = FindObjectOfType<HPpanelNONE>().GetComponent<GridLayoutGroup>();
+        HideHealthUnit();
     }
 
     void Update()
     {
         _textCountScore.text = _playerStatistic._score.ToString();
-        HideHealthUnit();
         ShowFireballUnit();
     }
 
     public void HideHealthUnit()
     {
-        /*for (int i = 0; i < _cherryImages.Length; i++)
+        if (_healthManager._maxHealth > 5) 
         {
-            _cherryImages[i].gameObject.SetActive(false);
-        }*/
+            _HPpanelLayoutGroup.constraintCount = 2;
+        }
+
+        if (_HPpanelPosition.childCount > 0) 
+        {
+            foreach (Transform child in _HPpanelPosition)
+            {
+                Destroy(child.gameObject);
+            }
+        }
 
         for (int i = 0; i < _healthManager._currentHealth; i++)
         {
-            // _cherryImages[i].gameObject.SetActive(true);
-            Instantiate(_HPImagePrfb, _HPpanelPosition); //////////////////
-        }
+            Instantiate(_HPImagePrfb, _HPpanelPosition);
+        }       
     }
 
     public void ShowFireballUnit()
     {
-        for (int i = 0; i < _fireballImages.Length; i++)
+        if (gameObject.CompareTag("DragonPlayer")) 
         {
-            var color = _fireballImages[i].color;
-            color.a = 0.5f;
-            _fireballImages[i].color = color;
+            for (int i = 0; i < _fireballImages.Length; i++)
+            {
+                var color = _fireballImages[i].color;
+                color.a = 0.5f;
+                _fireballImages[i].color = color;
+            }
+
+            for (int i = 0; i < _playerStatistic._fireballAmmo; i++) 
+            {
+                var color = _fireballImages[i].color;
+                color.a = 1f;
+                _fireballImages[i].color = color;
+            }
         }
 
-        for (int i = 0; i < _playerStatistic._fireballAmmo; i++) 
-        {
-            var color = _fireballImages[i].color;
-            color.a = 1f;
-            _fireballImages[i].color = color;
-        }
     }
 }
