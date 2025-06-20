@@ -11,7 +11,7 @@ public class VenomShooter : MonoBehaviour
     {
         var venomSpit = Instantiate(_venomSpit, transform.position, Quaternion.identity);
         var rigidBody = venomSpit.GetComponent<Rigidbody2D>();
-        var shootDirection = new Vector2(direction.x, 1).normalized;
+        var shootDirection = new Vector2(1, 1).normalized;
         //venomSpit.transform.localScale = transform.localScale;
         //rigidBody.AddForce(transform.localScale * _shootForce, ForceMode2D.Impulse);
         rigidBody.velocity = shootDirection * _shootForce;
