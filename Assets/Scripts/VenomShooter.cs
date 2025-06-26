@@ -5,16 +5,19 @@ using UnityEngine;
 public class VenomShooter : MonoBehaviour
 {
     [SerializeField] private GameObject _venomSpit;
+    [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _shootForce;
+    [SerializeField] private float _offsetY;
 
-    public void Shoot(Vector2 direction) 
+    public void Shoot() 
     {
-        var venomSpit = Instantiate(_venomSpit, transform.position, Quaternion.identity);
+        var venomSpit = Instantiate(_venomSpit, _spawnPoint.position, Quaternion.identity);
         var rigidBody = venomSpit.GetComponent<Rigidbody2D>();
-        var shootDirection = new Vector2(1, 1).normalized;
-        //venomSpit.transform.localScale = transform.localScale;
-        //rigidBody.AddForce(transform.localScale * _shootForce, ForceMode2D.Impulse);
-        rigidBody.velocity = shootDirection * _shootForce;
+        var shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        shootDirection += Vector2.up * _offsetY;
+
+        rigidBody.AddForce(shootDirection.normalized * _shootForce, ForceMode2D.Impulse);
+        
     }
 
 

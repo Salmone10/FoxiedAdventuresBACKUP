@@ -15,20 +15,13 @@ public class VenomSpit : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
     }
-
-    private void Update()
+    private void FixedUpdate()
     {
-        var y_location = _rigidBody.velocity.y;
-        _animator.SetFloat("y_location", y_location);
-
-        if (_rigidBody.velocity.sqrMagnitude > 0.01f) 
+        if (_rigidBody.velocity.sqrMagnitude > 0.01) 
         {
-            var direction = _rigidBody.velocity;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            if (_rigidBody.velocity.x < 0) { transform.localScale = new Vector3(1, -1, 1); }
-
-            //transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        }
+            var angle = Mathf.Atan2(_rigidBody.velocity.y, Mathf.Abs(_rigidBody.velocity.x)) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, transform.localScale.x > 0 ? angle : -angle);
+            transform.localScale = new Vector3(Mathf.Sign(_rigidBody.velocity.x), 1, 1);
+        }   
     }
 }

@@ -50,6 +50,6 @@ public class InputReader : MonoBehaviour
 
     public void OnSpitting(InputAction.CallbackContext parameter)
     {
-        if (parameter.started) { _venomShooter.Shoot(_playerController.Direction); }
+        if (parameter.started) { _venomShooter.Shoot(); }
     }
 }
