@@ -23,5 +23,5 @@ public class VenomSpit : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, transform.localScale.x > 0 ? angle : -angle);
             transform.localScale = new Vector3(Mathf.Sign(_rigidBody.velocity.x), 1, 1);
         }   
-    }
+    } 
 }

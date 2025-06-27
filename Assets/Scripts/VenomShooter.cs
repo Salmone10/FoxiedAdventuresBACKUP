@@ -15,10 +15,9 @@ public class VenomShooter : MonoBehaviour
         var rigidBody = venomSpit.GetComponent<Rigidbody2D>();
         var shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         shootDirection += Vector2.up * _offsetY;
-
-        rigidBody.AddForce(shootDirection.normalized * _shootForce, ForceMode2D.Impulse);
-        
+        rigidBody.AddForce(shootDirection.normalized * _shootForce, ForceMode2D.Impulse);        
     }
+
 
 
 }
