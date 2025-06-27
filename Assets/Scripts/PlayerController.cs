@@ -99,7 +99,15 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("is_ground", _checkGround._ground);
         _animator.SetBool("is_running", _direction.x != 0);
 
-        Move();
+        if (_isCanMove)
+        {
+            Move();
+        }
+        else
+        {
+            _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
+            _animator.SetBool("is_running", false);
+        }
         
     }
     void FixedUpdate()
@@ -109,10 +117,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Move()
     {
-        if (_isCanMove) 
-        {
-            _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
-        }
+        _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
     }
     public void CommonJump()
     {
@@ -226,9 +231,17 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(BlinckingCrt());
     }
 
-    public void SwitchMovingLock() 
+    public void DisableMove()
     {
-        _isCanMove = !_isCanMove;
+        print("DisableMove");
+        
+        _isCanMove = false;
+    }
+
+    public void EnableMove()
+    {
+        print("EnableMove");
+        _isCanMove = true;
     }
 
     public void SaveGame() 
