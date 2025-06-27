@@ -9,6 +9,7 @@ public class InputReader : MonoBehaviour
     private FireballController _fireballController;
     private ClawStrike _clawStrike;
     private VenomShooter _venomShooter;
+    private Animator _animator;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class InputReader : MonoBehaviour
         _fireballController = GetComponent<FireballController>();
         _clawStrike = GetComponent<ClawStrike>();
         _venomShooter = GetComponent<VenomShooter>();
+        _animator = GetComponent<Animator>();
     }
 
     public void OnMovement(InputAction.CallbackContext value)
@@ -31,18 +33,13 @@ public class InputReader : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext parameter)
     {
-        if (parameter.performed) { _playerController.Jump(); }
+        if (parameter.performed) { _playerController.CommonJump(); }
     }
 
     public void OnClawStriking(InputAction.CallbackContext parameter)
     {
         if (parameter.started) { _clawStrike.Strike(); }
     }
-    public void OnTaunting(InputAction.CallbackContext parameter)
-    {
-        if (parameter.started) { _playerController.Taunt(); }
-    }
-
     public void OnInteract(InputAction.CallbackContext parameter)
     {
         if (parameter.started) { _playerController.Interact(); }
@@ -50,6 +47,6 @@ public class InputReader : MonoBehaviour
 
     public void OnSpitting(InputAction.CallbackContext parameter)
     {
-        if (parameter.started) { _venomShooter.Shoot(); }
+        if (parameter.started) { _animator.SetTrigger("is_attack"); }
     }
 }
