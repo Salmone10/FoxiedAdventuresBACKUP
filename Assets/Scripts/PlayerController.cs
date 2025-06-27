@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     public float _jumpPower;
     public float _knockbackForce;
     public float _climbingSpeed; // dont include Squirrel
+    public bool _isCanMove = true;
     [SerializeField] public bool _isClimbing = false;
+
 
     [Header("Damage (hurt) eff settings")]
     public float _colorFadeTime;
@@ -100,20 +102,25 @@ public class PlayerController : MonoBehaviour
         Move();
         
     }
-
+    void FixedUpdate()
+    {
+        _animator.SetBool("is_rolling", _isRoll);
+        Ladder();
+    }
     private void Move()
     {
-        _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
+        if (_isCanMove) 
+        {
+            _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
+        }
     }
-
-    public void Jump()
+    public void CommonJump()
     {
         if (_checkGround._ground && !_isRoll)
         {
             _rigidBody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
         }
     }
-
     public void Roll()
     {
         if (!_isRoll && _checkGround._ground && _canRoll)
@@ -121,10 +128,9 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(RollingCrt());
         }
     }
-
     public void Ladder()
     {
-        if (!gameObject.CompareTag("SquirrelPlayer")) 
+        if (!gameObject.CompareTag("SquirrelPlayer") || !gameObject.CompareTag("SnakePlayer")) 
         {
             if (_checkLadder._ladder)
             {
@@ -137,33 +143,15 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    void FixedUpdate()
-    {
-        _animator.SetBool("is_rolling", _isRoll);
-        Ladder();
-    }
-
     public void TakeDamage()
     {
         _animator.SetTrigger("is_hurt");
         _rigidBody.AddForce(Vector2.up * _knockbackForce, ForceMode2D.Impulse);
     }
-
     public void TakeHeal()
     {
         StartCoroutine(ChangeColor());
     }
-
-    public void Taunt() 
-    {
-        if (_checkGround)
-        {
-            _animator.SetTrigger("is_taunting");
-            _audioSource.Play();
-        }
-    }
-
     public void Interact()
     {
         int hit = Physics2D.OverlapCircle(transform.position, _interactionRadius, _interactLayer, _interactionResult);
@@ -184,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    #region Other
     IEnumerator RollingCrt()
     {
         _isRoll = true;
@@ -230,10 +219,16 @@ public class PlayerController : MonoBehaviour
         }
         _spriteRenderer.enabled = true;
     }
+    
 
     public void Blinkering()
     {
         StartCoroutine(BlinckingCrt());
+    }
+
+    public void SwitchMovingLock() 
+    {
+        _isCanMove = !_isCanMove;
     }
 
     public void SaveGame() 
@@ -253,4 +248,5 @@ public class PlayerController : MonoBehaviour
             _healthManager._currentHealth = data.health;
         }
     }
+    #endregion
 }
