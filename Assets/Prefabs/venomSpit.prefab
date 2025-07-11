@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6470508095762717586}
   - component: {fileID: 7918754327297691987}
   - component: {fileID: 1629926728494845155}
+  - component: {fileID: 5680548859966330622}
   m_Layer: 0
   m_Name: particleSpawner
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922227903354219563}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.017, y: 0.10416935, z: -0.023717098}
   m_LocalScale: {x: 1.038961, y: 1.0526316, z: 1}
   m_ConstrainProportionsScale: 0
@@ -287,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.23
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1545,8 +1546,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -946553136, guid: 1d25eb1f457b36140b95e876247949ed, type: 3}
-    - sprite: {fileID: 659708738, guid: 1d25eb1f457b36140b95e876247949ed, type: 3}
+    - sprite: {fileID: 551372222, guid: c81d9ae44509e7947a4625716eb35c44, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -3796,7 +3796,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4889,6 +4889,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5680548859966330622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922227903354219563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26264f4b891cb9741b8af2870a18946d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2698842839444904554
 GameObject:
   m_ObjectHideFlags: 0
