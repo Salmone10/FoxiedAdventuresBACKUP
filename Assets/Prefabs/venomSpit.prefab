@@ -42,7 +42,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922227903354219563}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -51,7 +51,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -3855,7 +3855,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4901,6 +4901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26264f4b891cb9741b8af2870a18946d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _collisionCounter: 0
 --- !u!1 &2698842839444904554
 GameObject:
   m_ObjectHideFlags: 0
@@ -4916,7 +4917,6 @@ GameObject:
   - component: {fileID: 4209193734058772653}
   - component: {fileID: 5608896531511011100}
   - component: {fileID: 5475990897050119456}
-  - component: {fileID: 7841093861477412471}
   m_Layer: 11
   m_Name: venomSpit
   m_TagString: Untagged
@@ -5118,15 +5118,3 @@ MonoBehaviour:
   _tags:
   - PhysTilemap
   - SnakePlayer
---- !u!114 &7841093861477412471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698842839444904554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfa61199dcb226c4886e8658b14187a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

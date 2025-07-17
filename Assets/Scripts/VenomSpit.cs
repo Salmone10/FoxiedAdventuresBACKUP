@@ -11,8 +11,8 @@ public class VenomSpit : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private Collider2D _collider;
     private ParticleSystem.Particle[] _particlesQuantity;
+    private SpriteRenderer _spriteRenderer;
     private bool _checkParticles = false;
-    private bool _destroyed = false;
 
     [SerializeField] private ParticleSystem _particleSpawner;
     
@@ -23,6 +23,7 @@ public class VenomSpit : MonoBehaviour
         _animator = GetComponent<Animator>();
         _rigidBody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<Collider2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _particlesQuantity = new ParticleSystem.Particle[_particleSpawner.main.maxParticles];
         _particleSystemRenderer = _particleSpawner.GetComponent<ParticleSystemRenderer>();
     }
@@ -39,22 +40,24 @@ public class VenomSpit : MonoBehaviour
 
     private void Update()
     {
-        if (_checkParticles && !_destroyed)
+        if (_checkParticles)
         {
             var count = _particleSpawner.GetParticles(_particlesQuantity);
             print(count);
 
-            if (count == 0) { _destroyed = true; Destroy(gameObject); }
+            if (!_particleSpawner.IsAlive(true)) { Destroy(gameObject); }
         }
         
     }
     
     public void SpawnParticles() 
     {
-        _destroyed = false;
         _rigidBody.bodyType = RigidbodyType2D.Static;
         _collider.enabled = false;
+        _spriteRenderer.enabled = false;
         _particleSpawner.gameObject.SetActive(true);
+        _particleSpawner.Play();
         _checkParticles = true;
     }
+
 }
