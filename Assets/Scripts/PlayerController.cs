@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _isInteract = false;
 
     [Header("Snake player")]
+    public float _raycastLenth;
+    public LayerMask _raycastLayerMaskColission;
+    public bool _isCanMoveOnWall;
+    public bool _isClimbingOnWall;
 
     private Color _origColor;
 
@@ -77,13 +81,10 @@ public class PlayerController : MonoBehaviour
     {   
         var infelicity = 0.1f;
         var y_location = _rigidBody.velocity.y;
-
+        
         if (!_isRollLocked) { _canRoll = _checkGround._ground && _direction.x == 0 && !_isRoll; }
 
-        if (MathF.Abs(y_location) < infelicity) 
-        {
-            y_location = 0f;
-        }
+        if (MathF.Abs(y_location) < infelicity) { y_location = 0f; }
 
         _animator.SetFloat("y_location", y_location);
 
@@ -108,17 +109,48 @@ public class PlayerController : MonoBehaviour
             _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
             _animator.SetBool("is_running", false);
         }
-        
+
+        CheckWall();
+        WallClimb();
     }
+
     void FixedUpdate()
     {
         _animator.SetBool("is_rolling", _isRoll);
         Ladder();
     }
+
+    public void CheckWall() 
+    {
+        if (gameObject.CompareTag("SnakePlayer")) 
+        {
+            var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            var wallhit = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
+            Debug.DrawRay(transform.position, rayDirection*_raycastLenth, Color.yellow);
+            _isCanMoveOnWall = wallhit.collider != null ? true : false;
+        } 
+    }
+
+    public void WallClimb() 
+    {
+        if (_isCanMoveOnWall && _direction.x != 0)
+        {
+            _isClimbingOnWall = true;
+            _rigidBody.gravityScale = 0;
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed);
+        }
+        else 
+        {
+            _isClimbingOnWall = false;
+            _rigidBody.gravityScale = 5;
+        }
+    }
+
     private void Move()
     {
         _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
     }
+
     public void CommonJump()
     {
         if (_checkGround._ground && !_isRoll)
@@ -126,6 +158,7 @@ public class PlayerController : MonoBehaviour
             _rigidBody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
         }
     }
+
     public void Roll()
     {
         if (!_isRoll && _checkGround._ground && _canRoll)
@@ -133,6 +166,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(RollingCrt());
         }
     }
+
     public void Ladder()
     {
         if (!gameObject.CompareTag("SquirrelPlayer") || !gameObject.CompareTag("SnakePlayer")) 
@@ -153,10 +187,12 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("is_hurt");
         _rigidBody.AddForce(Vector2.up * _knockbackForce, ForceMode2D.Impulse);
     }
+
     public void TakeHeal()
     {
         StartCoroutine(ChangeColor());
     }
+
     public void Interact()
     {
         int hit = Physics2D.OverlapCircle(transform.position, _interactionRadius, _interactLayer, _interactionResult);
