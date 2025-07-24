@@ -28990,6 +28990,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1339609840}
     m_Modifications:
+    - target: {fileID: 750258492835410999, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2888039605641998986, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _fireballImages.Array.data[0]
       value: 

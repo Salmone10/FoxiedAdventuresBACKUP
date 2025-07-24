@@ -139,7 +139,13 @@ public class PlayerController : MonoBehaviour
             _rigidBody.gravityScale = 0;
             _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed);
         }
-        else 
+        else if (_direction.x == 0 && _isClimbingOnWall) 
+        {
+            _isClimbingOnWall = true;
+            _rigidBody.velocity = Vector2.zero;
+            _rigidBody.gravityScale = 0;
+        }
+        else
         {
             _isClimbingOnWall = false;
             _rigidBody.gravityScale = 5;
@@ -169,7 +175,7 @@ public class PlayerController : MonoBehaviour
 
     public void Ladder()
     {
-        if (!gameObject.CompareTag("SquirrelPlayer") || !gameObject.CompareTag("SnakePlayer")) 
+        if (!gameObject.CompareTag("SquirrelPlayer") && !gameObject.CompareTag("SnakePlayer")) 
         {
             if (_checkLadder._ladder)
             {
