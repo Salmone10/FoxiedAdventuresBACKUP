@@ -125,9 +125,14 @@ public class PlayerController : MonoBehaviour
         if (gameObject.CompareTag("SnakePlayer")) 
         {
             var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-            var wallhit = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
+            var wallhit_right = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
+            var wallhit_left = Physics2D.Raycast(transform.position, -rayDirection, _raycastLenth + 0.5f, _raycastLayerMaskColission);
+
             Debug.DrawRay(transform.position, rayDirection*_raycastLenth, Color.yellow);
-            _isCanMoveOnWall = wallhit.collider != null ? true : false;
+            Debug.DrawRay(transform.position, -rayDirection * (_raycastLenth + 0.5f), Color.yellow);
+
+            _isCanMoveOnWall = wallhit_right.collider != null || wallhit_left.collider != null ? true : false;
+
         } 
     }
 
@@ -136,8 +141,11 @@ public class PlayerController : MonoBehaviour
         if (_isCanMoveOnWall && _direction.x != 0)
         {
             _isClimbingOnWall = true;
+            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 0;
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed);
+
+            print(_direction.x);
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed * _direction.x);
         }
         else if (_direction.x == 0 && _isClimbingOnWall) 
         {
@@ -148,6 +156,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             _isClimbingOnWall = false;
+            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 5;
         }
     }
