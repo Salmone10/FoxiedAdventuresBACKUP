@@ -32,17 +32,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _isInteract = false;
 
     [Header("Snake player")]
-    [SerializeField] private Transform _wallCheckPointLeft;
-    [SerializeField] private Transform _wallCheckPointRight;
-    [SerializeField] float _wallCheckDistance;
-
-    private bool _isCheckWallLeft;
-    private bool _isCheckWallRight;
-
+    public float _raycastLenth;
     public LayerMask _raycastLayerMaskColission;
     public bool _isCanMoveOnWall;
     public bool _isClimbingOnWall;
-
 
     private Color _origColor;
 
@@ -131,29 +124,40 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObject.CompareTag("SnakePlayer")) 
         {
-            _isCheckWallLeft = Physics2D.Raycast(_wallCheckPointLeft.position, Vector2.left, _wallCheckDistance, _raycastLayerMaskColission);
-            _isCheckWallRight = Physics2D.Raycast(_wallCheckPointRight.position, Vector2.right, _wallCheckDistance, _raycastLayerMaskColission);
+            var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+            var wallhit_right = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
+            var wallhit_left = Physics2D.Raycast(transform.position, -rayDirection, _raycastLenth + 0.5f, _raycastLayerMaskColission);
 
-            _isCanMoveOnWall = _isCheckWallLeft || _isCheckWallRight;
+            Debug.DrawRay(transform.position, rayDirection*_raycastLenth, Color.yellow);
+            Debug.DrawRay(transform.position, -rayDirection * (_raycastLenth + 0.5f), Color.yellow);
+
+            _isCanMoveOnWall = wallhit_right.collider != null || wallhit_left.collider != null ? true : false;
+
         } 
     }
 
     public void WallClimb() 
     {
-       if (_isCanMoveOnWall && _checkGround._ground && !_checkLadder._ladder)
-       {
+        if (_isCanMoveOnWall && _direction.x != 0)
+        {
             _isClimbingOnWall = true;
+            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 0;
 
-            _rigidBody.velocity = new Vector2(_speed * _direction.x, _speed * _direction.y);
-
-            _animator.SetBool("is_climbing_on_wall", true);
-       }
-       else
+            print(_direction.x);
+            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed * _direction.x);
+        }
+        else if (_direction.x == 0 && _isClimbingOnWall) 
+        {
+            _isClimbingOnWall = true;
+            _rigidBody.velocity = Vector2.zero;
+            _rigidBody.gravityScale = 0;
+        }
+        else
         {
             _isClimbingOnWall = false;
+            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 5;
-            _animator.SetBool("is_climbing_on_wall", false);
         }
     }
 
@@ -180,7 +184,7 @@ public class PlayerController : MonoBehaviour
 
     public void Ladder()
     {
-        if (!gameObject.CompareTag("SquirrelPlayer") || !gameObject.CompareTag("SnakePlayer")) 
+        if (!gameObject.CompareTag("SquirrelPlayer") && !gameObject.CompareTag("SnakePlayer")) 
         {
             if (_checkLadder._ladder)
             {
