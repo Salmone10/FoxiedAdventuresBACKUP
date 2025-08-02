@@ -127,17 +127,26 @@ public class PlayerController : MonoBehaviour
             var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
             var wallhit_right = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
             var wallhit_left = Physics2D.Raycast(transform.position, -rayDirection, _raycastLenth + 0.5f, _raycastLayerMaskColission);
-
             Debug.DrawRay(transform.position, rayDirection*_raycastLenth, Color.yellow);
             Debug.DrawRay(transform.position, -rayDirection * (_raycastLenth + 0.5f), Color.yellow);
 
             _isCanMoveOnWall = wallhit_right.collider != null || wallhit_left.collider != null ? true : false;
-
         } 
     }
 
     public void WallClimb() 
     {
+
+        if (_isCanMoveOnWall && _direction.x < 0 && _checkGround._ground)
+        {
+            print($"_checkGround._ground = {_checkGround._ground}");
+            _isClimbingOnWall = false;
+            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
+            _rigidBody.gravityScale = 5;
+            return;
+        }
+
+
         if (_isCanMoveOnWall && _direction.x != 0)
         {
             _isClimbingOnWall = true;
@@ -145,7 +154,7 @@ public class PlayerController : MonoBehaviour
             _rigidBody.gravityScale = 0;
 
             print(_direction.x);
-            _rigidBody.velocity = new Vector2(_rigidBody.velocity.x, _speed * _direction.x);
+            _rigidBody.velocity = new Vector2(0f, _speed * _direction.x);
         }
         else if (_direction.x == 0 && _isClimbingOnWall) 
         {
