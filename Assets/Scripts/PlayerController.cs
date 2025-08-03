@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -62,6 +63,10 @@ public class PlayerController : MonoBehaviour
     public CheckGround CheckGround { get => _checkGround; }
     public Collider2D[] _interactionResult = new Collider2D[1];
     [SerializeField] public ReloadScale _reloadScale;
+
+    [SerializeField] private enum WallSide { None, Left, Right };
+    [SerializeField] private WallSide _wallSide = WallSide.None;
+
 
     void Start()
     {
@@ -124,6 +129,26 @@ public class PlayerController : MonoBehaviour
     {
         if (gameObject.CompareTag("SnakePlayer")) 
         {
+
+            var rightOrigin = transform.position + new Vector3(0.25f, 0f);
+            var leftOrigin = transform.position - new Vector3(0.25f, 0f);
+
+            var hitRight = Physics2D.Raycast(rightOrigin, Vector2.right, _raycastLenth, _raycastLayerMaskColission);
+            var hitLeft = Physics2D.Raycast(leftOrigin, Vector2.left, _raycastLenth, _raycastLayerMaskColission);
+
+            Debug.DrawRay(rightOrigin, Vector2.right * _raycastLenth, Color.yellow);
+            Debug.DrawRay(leftOrigin, Vector2.left * _raycastLenth, Color.yellow);
+
+            _isCanMoveOnWall = hitRight.collider != null || hitLeft.collider != null;
+
+            if (hitRight.collider != null)
+                _wallSide = WallSide.Right;
+            else if (hitLeft.collider != null)
+                _wallSide = WallSide.Left;
+            else
+                _wallSide = WallSide.None;
+
+            /*
             var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
             var wallhit_right = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
             var wallhit_left = Physics2D.Raycast(transform.position, -rayDirection, _raycastLenth + 0.5f, _raycastLayerMaskColission);
@@ -131,36 +156,39 @@ public class PlayerController : MonoBehaviour
             Debug.DrawRay(transform.position, -rayDirection * (_raycastLenth + 0.5f), Color.yellow);
 
             _isCanMoveOnWall = wallhit_right.collider != null || wallhit_left.collider != null ? true : false;
+            */
         } 
     }
 
     public void WallClimb() 
     {
+        var isRightWall = _wallSide == WallSide.Right;
+        var isLeftWall = _wallSide == WallSide.Left;
 
-        if (_isCanMoveOnWall && _direction.x < 0 && _checkGround._ground)
+        var upWall = (isRightWall && _direction.x > 0) || (isLeftWall && _direction.x < 0);
+        var downWall = (isRightWall && _direction.x < 0) || (isLeftWall && _direction.x > 0);
+
+        if (_isCanMoveOnWall)
         {
-            print($"_checkGround._ground = {_checkGround._ground}");
-            _isClimbingOnWall = false;
-            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
-            _rigidBody.gravityScale = 5;
-            return;
-        }
-
-
-        if (_isCanMoveOnWall && _direction.x != 0)
-        {
-            _isClimbingOnWall = true;
+            _isCanMoveOnWall = true;
             _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 0;
 
-            print(_direction.x);
-            _rigidBody.velocity = new Vector2(0f, _speed * _direction.x);
-        }
-        else if (_direction.x == 0 && _isClimbingOnWall) 
-        {
-            _isClimbingOnWall = true;
-            _rigidBody.velocity = Vector2.zero;
-            _rigidBody.gravityScale = 0;
+
+            if (upWall)
+            {
+                _rigidBody.velocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
+            }
+            else if (downWall)
+            {
+                _rigidBody.velocity = new Vector2(0f, -_speed * Mathf.Abs(_direction.x));
+            }
+            else
+            {
+                _rigidBody.velocity = Vector2.zero;
+            }
+
+            
         }
         else
         {
