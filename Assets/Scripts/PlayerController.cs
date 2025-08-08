@@ -38,6 +38,8 @@ public class PlayerController : MonoBehaviour
     public bool _isCanMoveOnWall;
     public bool _isClimbingOnWall;
 
+    public float _pauseBfrClimbing;
+
     private Color _origColor;
 
     // components
@@ -148,15 +150,6 @@ public class PlayerController : MonoBehaviour
             else
                 _wallSide = WallSide.None;
 
-            /*
-            var rayDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-            var wallhit_right = Physics2D.Raycast(transform.position, rayDirection, _raycastLenth, _raycastLayerMaskColission);
-            var wallhit_left = Physics2D.Raycast(transform.position, -rayDirection, _raycastLenth + 0.5f, _raycastLayerMaskColission);
-            Debug.DrawRay(transform.position, rayDirection*_raycastLenth, Color.yellow);
-            Debug.DrawRay(transform.position, -rayDirection * (_raycastLenth + 0.5f), Color.yellow);
-
-            _isCanMoveOnWall = wallhit_right.collider != null || wallhit_left.collider != null ? true : false;
-            */
         } 
     }
 
@@ -170,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
         if (_isCanMoveOnWall)
         {
-            _isCanMoveOnWall = true;
+            //_isCanMoveOnWall = true;
             _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
             _rigidBody.gravityScale = 0;
 
