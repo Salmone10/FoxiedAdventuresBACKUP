@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     public bool _isClimbingOnWall;
 
     public float _pauseBfrClimbing;
+    private float _pauseBfrClimbingTime;
+
 
     private Color _origColor;
 
@@ -129,65 +131,89 @@ public class PlayerController : MonoBehaviour
 
     public void CheckWall() 
     {
-        if (gameObject.CompareTag("SnakePlayer")) 
+        if (!gameObject.CompareTag("SnakePlayer")) return;
+
+        var rightOrigin = transform.position + new Vector3(0.25f, 0f);
+        var leftOrigin = transform.position - new Vector3(0.25f, 0f);
+
+        var hitRight = Physics2D.Raycast(rightOrigin, Vector2.right, _raycastLenth, _raycastLayerMaskColission);
+        var hitLeft = Physics2D.Raycast(leftOrigin, Vector2.left, _raycastLenth, _raycastLayerMaskColission);
+
+        Debug.DrawRay(rightOrigin, Vector2.right * _raycastLenth, Color.yellow);
+        Debug.DrawRay(leftOrigin, Vector2.left * _raycastLenth, Color.yellow);
+
+        if (hitRight.collider != null) { _wallSide = WallSide.Right; _isCanMoveOnWall = true; }
+        else if (hitLeft.collider != null) { _wallSide = WallSide.Left; _isCanMoveOnWall = true; }
+        else { _wallSide = WallSide.None; _isCanMoveOnWall = false; }
+
+        var pressingTowardsWall = (_wallSide == WallSide.Right && _direction.x > 0) || (_wallSide == WallSide.Left && _direction.x < 0);
+            
+        if (_checkGround._ground)
         {
-
-            var rightOrigin = transform.position + new Vector3(0.25f, 0f);
-            var leftOrigin = transform.position - new Vector3(0.25f, 0f);
-
-            var hitRight = Physics2D.Raycast(rightOrigin, Vector2.right, _raycastLenth, _raycastLayerMaskColission);
-            var hitLeft = Physics2D.Raycast(leftOrigin, Vector2.left, _raycastLenth, _raycastLayerMaskColission);
-
-            Debug.DrawRay(rightOrigin, Vector2.right * _raycastLenth, Color.yellow);
-            Debug.DrawRay(leftOrigin, Vector2.left * _raycastLenth, Color.yellow);
-
-            _isCanMoveOnWall = hitRight.collider != null || hitLeft.collider != null;
-
-            if (hitRight.collider != null)
-                _wallSide = WallSide.Right;
-            else if (hitLeft.collider != null)
-                _wallSide = WallSide.Left;
+            if (_isClimbingOnWall)
+            {
+                if (Time.time >= _pauseBfrClimbingTime && !pressingTowardsWall)
+                    ExitWall();
+            }
             else
-                _wallSide = WallSide.None;
+            {
+                if (_isCanMoveOnWall && pressingTowardsWall)
+                    EnterWall();
+            }
+            return;
+        }
 
-        } 
+        if (_isCanMoveOnWall)
+        {
+            if (!_isClimbingOnWall && pressingTowardsWall)
+                EnterWall();
+        }
+        else
+        {
+            if (_isClimbingOnWall)
+                ExitWall();
+        }
     }
+
+    private void EnterWall()
+    {
+        _isClimbingOnWall = true;
+        _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
+        _rigidBody.gravityScale = 0;
+        _pauseBfrClimbingTime = Time.time + _pauseBfrClimbing;
+    }
+
+    private void ExitWall()
+    {
+        _isClimbingOnWall = false;
+        _isCanMoveOnWall = false;
+        _wallSide = WallSide.None;
+        _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
+        _rigidBody.gravityScale = 5;
+    }
+
 
     public void WallClimb() 
     {
+        if (!_isClimbingOnWall) return;
+
         var isRightWall = _wallSide == WallSide.Right;
         var isLeftWall = _wallSide == WallSide.Left;
 
         var upWall = (isRightWall && _direction.x > 0) || (isLeftWall && _direction.x < 0);
         var downWall = (isRightWall && _direction.x < 0) || (isLeftWall && _direction.x > 0);
 
-        if (_isCanMoveOnWall)
+        if (upWall)
         {
-            //_isCanMoveOnWall = true;
-            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
-            _rigidBody.gravityScale = 0;
-
-
-            if (upWall)
-            {
-                _rigidBody.velocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
-            }
-            else if (downWall)
-            {
-                _rigidBody.velocity = new Vector2(0f, -_speed * Mathf.Abs(_direction.x));
-            }
-            else
-            {
-                _rigidBody.velocity = Vector2.zero;
-            }
-
-            
+            _rigidBody.velocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
+        }
+        else if (downWall)
+        {
+            _rigidBody.velocity = new Vector2(0f, -_speed * Mathf.Abs(_direction.x));
         }
         else
         {
-            _isClimbingOnWall = false;
-            _animator.SetBool("is_climbing_on_wall", _isClimbingOnWall);
-            _rigidBody.gravityScale = 5;
+            _rigidBody.velocity = Vector2.zero;
         }
     }
 
