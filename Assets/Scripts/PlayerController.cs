@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask _raycastLayerMaskColission;
     public bool _isCanMoveOnWall;
     public bool _isClimbingOnWall;
-
+    [SerializeField] public Transform _raycatPoint;
     public float _pauseBfrClimbing;
     private float _pauseBfrClimbingTime;
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         var y_location = _rigidBody.velocity.y;
         
         if (!_isRollLocked) { _canRoll = _checkGround._ground && _direction.x == 0 && !_isRoll; }
-
+        if (_checkGround._ground) { _spriteRenderer.flipY = false; }
         if (MathF.Abs(y_location) < infelicity) { y_location = 0f; }
 
         _animator.SetFloat("y_location", y_location);
@@ -101,7 +101,15 @@ public class PlayerController : MonoBehaviour
 
         if (_direction.x != 0)
         {
-            transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //поворот игрока
+            if (!_isClimbingOnWall)
+            {
+                transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //поворот игрока
+            }
+            else 
+            {
+                if (_direction.x > 0 && _wallSide == WallSide.Left) { _spriteRenderer.flipY = true; }
+                else if (_direction.x < 0 && _wallSide == WallSide.Right) { _spriteRenderer.flipY = true; }
+            }
         }
 
         if (!gameObject.CompareTag("SquirrelPlayer")) { _animator.SetBool("is_on_ladder", _checkLadder._ladder); }
@@ -133,8 +141,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!gameObject.CompareTag("SnakePlayer")) return;
 
-        var rightOrigin = transform.position + new Vector3(0.25f, 0f);
-        var leftOrigin = transform.position - new Vector3(0.25f, 0f);
+        var rightOrigin = _raycatPoint.position + new Vector3(0.25f, 0f);
+        var leftOrigin = _raycatPoint.position - new Vector3(0.25f, 0f);
 
         var hitRight = Physics2D.Raycast(rightOrigin, Vector2.right, _raycastLenth, _raycastLayerMaskColission);
         var hitLeft = Physics2D.Raycast(leftOrigin, Vector2.left, _raycastLenth, _raycastLayerMaskColission);
@@ -206,6 +214,7 @@ public class PlayerController : MonoBehaviour
         if (upWall)
         {
             _rigidBody.velocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
+            _spriteRenderer.flipY = false;
         }
         else if (downWall)
         {
