@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -105,6 +106,7 @@ ScriptedImporter:
     pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 0
@@ -126,6 +128,7 @@ ScriptedImporter:
     pivot: {x: 0.5833333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -146,6 +149,7 @@ ScriptedImporter:
     pivot: {x: 0.6052632, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -166,6 +170,7 @@ ScriptedImporter:
     pivot: {x: 0.64285713, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -186,6 +191,7 @@ ScriptedImporter:
     pivot: {x: 0.6052632, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -206,6 +212,7 @@ ScriptedImporter:
     pivot: {x: 0.5833333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -226,6 +233,7 @@ ScriptedImporter:
     pivot: {x: 0.575, y: -0.045454547}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -246,6 +254,7 @@ ScriptedImporter:
     pivot: {x: 0.5833333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -266,6 +275,7 @@ ScriptedImporter:
     pivot: {x: 0.5277778, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -286,6 +296,7 @@ ScriptedImporter:
     pivot: {x: 0.49999997, y: -0.045454547}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -306,6 +317,7 @@ ScriptedImporter:
     pivot: {x: 0.5277778, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -326,6 +338,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.08695652}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -346,6 +359,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.041666668}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -366,6 +380,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.08695652}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -386,6 +401,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.041666668}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -406,6 +422,7 @@ ScriptedImporter:
     pivot: {x: 0.5833333, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -426,6 +443,7 @@ ScriptedImporter:
     pivot: {x: 0.42499998, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -446,6 +464,7 @@ ScriptedImporter:
     pivot: {x: 0.42499998, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -466,6 +485,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.03846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -486,6 +506,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: -0.04}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -506,6 +527,7 @@ ScriptedImporter:
     pivot: {x: 0.54347825, y: -0.0952381}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -526,6 +548,7 @@ ScriptedImporter:
     pivot: {x: 0.54761904, y: -0.13636364}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -546,6 +569,7 @@ ScriptedImporter:
     pivot: {x: 0.5952381, y: -0.0952381}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 68
@@ -566,6 +590,7 @@ ScriptedImporter:
     pivot: {x: 0.6304348, y: -0.0952381}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -586,6 +611,7 @@ ScriptedImporter:
     pivot: {x: 0.6590909, y: -0.05263158}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -606,6 +632,7 @@ ScriptedImporter:
     pivot: {x: 0.6304348, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -626,6 +653,7 @@ ScriptedImporter:
     pivot: {x: 0.5625, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -646,6 +674,7 @@ ScriptedImporter:
     pivot: {x: 0.54347825, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -666,6 +695,7 @@ ScriptedImporter:
     pivot: {x: 0.36956522, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -686,6 +716,7 @@ ScriptedImporter:
     pivot: {x: 0.47916666, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -706,6 +737,7 @@ ScriptedImporter:
     pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 35
@@ -726,6 +758,7 @@ ScriptedImporter:
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 127
@@ -746,6 +779,7 @@ ScriptedImporter:
     pivot: {x: 0.5277778, y: -0.05882353}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 97
@@ -766,6 +800,7 @@ ScriptedImporter:
     pivot: {x: 0.49999997, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 127
@@ -786,6 +821,7 @@ ScriptedImporter:
     pivot: {x: 0.5277778, y: -0.05882353}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 152
@@ -806,6 +842,7 @@ ScriptedImporter:
     pivot: {x: 0.64285713, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -826,6 +863,7 @@ ScriptedImporter:
     pivot: {x: 0.6052632, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
     rect:
       serializedVersion: 2
       x: 4
@@ -844,13 +882,13 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1029861934
+    guid: -911352934
     name: Foxy
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Foxy_Frame_0
+    - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
@@ -859,7 +897,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: cd40d108895a04541b504a1ec6cc0d30
-    - name: Foxy_Frame_1
+    - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
@@ -868,7 +906,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 54cee6b9859281e4e962f96659656e62
-    - name: Foxy_Frame_2
+    - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
       cellRect:
@@ -877,7 +915,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 64216a2879b935e4faa9d616fb161308
-    - name: Foxy_Frame_3
+    - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
       cellRect:
@@ -886,7 +924,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 32b850ce844c4d4438cb8b9fb75568aa
-    - name: Foxy_Frame_4
+    - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
       cellRect:
@@ -895,7 +933,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: fb89a7366af9fe34087987f3eaf4cee0
-    - name: Foxy_Frame_5
+    - name: Frame_5
       frameIndex: 5
       additiveSortOrder: 0
       cellRect:
@@ -904,7 +942,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: c0083d448866d9e4594854d8885f241d
-    - name: Foxy_Frame_6
+    - name: Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
@@ -913,7 +951,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 3fbec1fed15f7c24cbbeb8e9e9fbb0a9
-    - name: Foxy_Frame_7
+    - name: Frame_7
       frameIndex: 7
       additiveSortOrder: 0
       cellRect:
@@ -922,7 +960,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 091a3d6c9b2890b4586fe3a639171818
-    - name: Foxy_Frame_8
+    - name: Frame_8
       frameIndex: 8
       additiveSortOrder: 0
       cellRect:
@@ -931,7 +969,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: b658569b930baf94ea1fcf2419135d69
-    - name: Foxy_Frame_9
+    - name: Frame_9
       frameIndex: 9
       additiveSortOrder: 0
       cellRect:
@@ -940,7 +978,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 868170071d853dd448f5836a198a287e
-    - name: Foxy_Frame_10
+    - name: Frame_10
       frameIndex: 10
       additiveSortOrder: 0
       cellRect:
@@ -949,7 +987,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: f855f1fe7d04c5646b7c31344f616536
-    - name: Foxy_Frame_11
+    - name: Frame_11
       frameIndex: 11
       additiveSortOrder: 0
       cellRect:
@@ -958,7 +996,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 743c840ac77ae2441bad802da2b5e893
-    - name: Foxy_Frame_12
+    - name: Frame_12
       frameIndex: 12
       additiveSortOrder: 0
       cellRect:
@@ -967,7 +1005,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 806fb7e293c78aa4dab003d211137bbd
-    - name: Foxy_Frame_13
+    - name: Frame_13
       frameIndex: 13
       additiveSortOrder: 0
       cellRect:
@@ -976,7 +1014,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 6bb06b21e791d3243b3a628fb06aeb49
-    - name: Foxy_Frame_14
+    - name: Frame_14
       frameIndex: 14
       additiveSortOrder: 0
       cellRect:
@@ -985,7 +1023,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: a6f3b86edff8e284e88921bb14ace28d
-    - name: Foxy_Frame_15
+    - name: Frame_15
       frameIndex: 15
       additiveSortOrder: 0
       cellRect:
@@ -994,7 +1032,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 52d70d3c7cce32647bec57b2499700b1
-    - name: Foxy_Frame_16
+    - name: Frame_16
       frameIndex: 16
       additiveSortOrder: 0
       cellRect:
@@ -1003,7 +1041,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 79b7dea0a44b7b64fbfb42a37ad2ef84
-    - name: Foxy_Frame_17
+    - name: Frame_17
       frameIndex: 17
       additiveSortOrder: 0
       cellRect:
@@ -1012,7 +1050,7 @@ ScriptedImporter:
         width: 23
         height: 26
       spriteId: dddbb10344473664db26817e015d789f
-    - name: Foxy_Frame_18
+    - name: Frame_18
       frameIndex: 18
       additiveSortOrder: 0
       cellRect:
@@ -1021,7 +1059,7 @@ ScriptedImporter:
         width: 25
         height: 25
       spriteId: acc2f135a43db724498f78fee2a58921
-    - name: Foxy_Frame_19
+    - name: Frame_19
       frameIndex: 19
       additiveSortOrder: 0
       cellRect:
@@ -1030,7 +1068,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: 6fcc109fd565f144cbec2d27a58cb00f
-    - name: Foxy_Frame_20
+    - name: Frame_20
       frameIndex: 20
       additiveSortOrder: 0
       cellRect:
@@ -1039,7 +1077,7 @@ ScriptedImporter:
         width: 33
         height: 32
       spriteId: a02d0e4751ce93d4ca5b19c9d5ed519f
-    - name: Foxy_Frame_21
+    - name: Frame_21
       frameIndex: 21
       additiveSortOrder: 0
       cellRect:
@@ -1048,7 +1086,7 @@ ScriptedImporter:
         width: 21
         height: 21
       spriteId: b014dd824cd94ad4ea9d58e67fd1719f
-    - name: Foxy_Frame_22
+    - name: Frame_22
       frameIndex: 22
       additiveSortOrder: 0
       cellRect:
@@ -1057,7 +1095,7 @@ ScriptedImporter:
         width: 23
         height: 21
       spriteId: f152f591adf03404f947ddd91e1ed399
-    - name: Foxy_Frame_23
+    - name: Frame_23
       frameIndex: 23
       additiveSortOrder: 0
       cellRect:
@@ -1066,7 +1104,7 @@ ScriptedImporter:
         width: 22
         height: 19
       spriteId: bd2daf7742a2b2142acffbb30c3f5a0f
-    - name: Foxy_Frame_24
+    - name: Frame_24
       frameIndex: 24
       additiveSortOrder: 0
       cellRect:
@@ -1075,7 +1113,7 @@ ScriptedImporter:
         width: 23
         height: 28
       spriteId: 9566bc8898eb52344917d453acfe43bf
-    - name: Foxy_Frame_25
+    - name: Frame_25
       frameIndex: 25
       additiveSortOrder: 0
       cellRect:
@@ -1084,7 +1122,7 @@ ScriptedImporter:
         width: 24
         height: 25
       spriteId: b87e4b4c2ea60ec45b11bcf33b23eb3f
-    - name: Foxy_Frame_26
+    - name: Frame_26
       frameIndex: 26
       additiveSortOrder: 0
       cellRect:
@@ -1093,7 +1131,7 @@ ScriptedImporter:
         width: 23
         height: 23
       spriteId: 4af2ad1b59ae4e743b22d387563bef38
-    - name: Foxy_Frame_27
+    - name: Frame_27
       frameIndex: 27
       additiveSortOrder: 0
       cellRect:
@@ -1102,7 +1140,7 @@ ScriptedImporter:
         width: 23
         height: 28
       spriteId: 779a58e43e54c5f41a425584ee66bd63
-    - name: Foxy_Frame_28
+    - name: Frame_28
       frameIndex: 28
       additiveSortOrder: 0
       cellRect:
@@ -1111,7 +1149,7 @@ ScriptedImporter:
         width: 24
         height: 25
       spriteId: 09ce1a21769dd0648b0363345a13e3c2
-    - name: Foxy_Frame_29
+    - name: Frame_29
       frameIndex: 29
       additiveSortOrder: 0
       cellRect:
@@ -1120,7 +1158,7 @@ ScriptedImporter:
         width: 23
         height: 23
       spriteId: 73f2cdc25c3a065418dc6e3d5f6f6264
-    - name: Foxy_Frame_30
+    - name: Frame_30
       frameIndex: 30
       additiveSortOrder: 0
       cellRect:
@@ -1129,7 +1167,7 @@ ScriptedImporter:
         width: 17
         height: 18
       spriteId: 50497da1149265247b36d920f49f5303
-    - name: Foxy_Frame_31
+    - name: Frame_31
       frameIndex: 31
       additiveSortOrder: 0
       cellRect:
@@ -1138,7 +1176,7 @@ ScriptedImporter:
         width: 18
         height: 17
       spriteId: fab3fba4f20f4bd4b94a75717f29f3fe
-    - name: Foxy_Frame_32
+    - name: Frame_32
       frameIndex: 32
       additiveSortOrder: 0
       cellRect:
@@ -1147,7 +1185,7 @@ ScriptedImporter:
         width: 17
         height: 18
       spriteId: a357d60faac99174e8dd7e0a803a6c80
-    - name: Foxy_Frame_33
+    - name: Frame_33
       frameIndex: 33
       additiveSortOrder: 0
       cellRect:
@@ -1156,7 +1194,7 @@ ScriptedImporter:
         width: 18
         height: 17
       spriteId: 1a369b25c749f9145a8849ca08a79a8b
-    - name: Foxy_Frame_34
+    - name: Frame_34
       frameIndex: 34
       additiveSortOrder: 0
       cellRect:
@@ -1165,7 +1203,7 @@ ScriptedImporter:
         width: 21
         height: 22
       spriteId: fa6ed9fc0b8dc7c41b4b4fc3aa3106f5
-    - name: Foxy_Frame_35
+    - name: Frame_35
       frameIndex: 35
       additiveSortOrder: 0
       cellRect:
@@ -1181,3 +1219,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 33, y: 32}
+  previousTextureSize: {x: 256, y: 256}

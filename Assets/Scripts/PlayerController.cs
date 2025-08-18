@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {   
         var infelicity = 0.1f;
-        var y_location = _rigidBody.velocity.y;
+        var y_location = _rigidBody.linearVelocity.y;
         
         if (!_isRollLocked) { _canRoll = _checkGround._ground && _direction.x == 0 && !_isRoll; }
         if (_checkGround._ground) { _spriteRenderer.flipY = false; }
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isClimbingOnWall)
             {
-                transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //поворот игрока
+                transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             }
             else 
             {
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            _rigidBody.velocity = new Vector2(0f, _rigidBody.velocity.y);
+            _rigidBody.linearVelocity = new Vector2(0f, _rigidBody.linearVelocity.y);
             _animator.SetBool("is_running", false);
         }
 
@@ -213,22 +213,22 @@ public class PlayerController : MonoBehaviour
 
         if (upWall)
         {
-            _rigidBody.velocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
+            _rigidBody.linearVelocity = new Vector2(0f, _speed * Mathf.Abs(_direction.x));
             _spriteRenderer.flipY = false;
         }
         else if (downWall)
         {
-            _rigidBody.velocity = new Vector2(0f, -_speed * Mathf.Abs(_direction.x));
+            _rigidBody.linearVelocity = new Vector2(0f, -_speed * Mathf.Abs(_direction.x));
         }
         else
         {
-            _rigidBody.velocity = Vector2.zero;
+            _rigidBody.linearVelocity = Vector2.zero;
         }
     }
 
     private void Move()
     {
-        _rigidBody.velocity = new Vector2(_speed * _direction.x, _rigidBody.velocity.y);
+        _rigidBody.linearVelocity = new Vector2(_speed * _direction.x, _rigidBody.linearVelocity.y);
     }
 
     public void CommonJump()
@@ -254,7 +254,7 @@ public class PlayerController : MonoBehaviour
             if (_checkLadder._ladder)
             {
                 _rigidBody.gravityScale = 0;
-                _rigidBody.velocity = new Vector2(_speed * _direction.x, _climbingSpeed * _direction.y);
+                _rigidBody.linearVelocity = new Vector2(_speed * _direction.x, _climbingSpeed * _direction.y);
             }
             else
             {
@@ -300,7 +300,7 @@ public class PlayerController : MonoBehaviour
 
         print(_isRoll);
         var rollDirection = Mathf.Sign(transform.lossyScale.x);
-        _rigidBody.velocity = new Vector2(_rollSpeed * rollDirection, _rigidBody.velocity.y);
+        _rigidBody.linearVelocity = new Vector2(_rollSpeed * rollDirection, _rigidBody.linearVelocity.y);
 
         yield return new WaitForSeconds(_rollTime);
 

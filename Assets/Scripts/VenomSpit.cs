@@ -29,11 +29,11 @@ public class VenomSpit : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_rigidBody.velocity.sqrMagnitude > 0.01) 
+        if (_rigidBody.linearVelocity.sqrMagnitude > 0.01) 
         {
-            var angle = Mathf.Atan2(_rigidBody.velocity.y, Mathf.Abs(_rigidBody.velocity.x)) * Mathf.Rad2Deg;
+            var angle = Mathf.Atan2(_rigidBody.linearVelocity.y, Mathf.Abs(_rigidBody.linearVelocity.x)) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, transform.localScale.x > 0 ? angle : -angle);
-            transform.localScale = new Vector3(Mathf.Sign(_rigidBody.velocity.x), 1, 1);
+            transform.localScale = new Vector3(Mathf.Sign(_rigidBody.linearVelocity.x), 1, 1);
             _particleSystemRenderer.flip = new Vector3(-transform.localScale.x, 0, 0);
         }
     }
