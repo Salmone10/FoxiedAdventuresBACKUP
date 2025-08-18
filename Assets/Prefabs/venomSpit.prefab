@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7918754327297691987}
   - component: {fileID: 1629926728494845155}
   - component: {fileID: 5680548859966330622}
+  - component: {fileID: 5335290781327324509}
   m_Layer: 0
   m_Name: particleSpawner
   m_TagString: Untagged
@@ -4902,6 +4903,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collisionCounter: 0
+--- !u!114 &5335290781327324509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922227903354219563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c9886134191588489cb77683db732e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2698842839444904554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,4 +5130,3 @@ MonoBehaviour:
         m_CallState: 2
   _tags:
   - PhysTilemap
-  - SnakePlayer
