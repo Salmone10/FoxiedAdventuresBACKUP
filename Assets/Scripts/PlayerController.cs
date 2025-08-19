@@ -33,6 +33,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _isInteract = false;
 
     [Header("Snake player")]
+    public float _dashTime;
+    public float _dashSpeed;
+    public float _beforeDashAnimationTiming;
+
     public float _raycastLenth;
     public LayerMask _raycastLayerMaskColission;
     public bool _isCanMoveOnWall;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Transform _raycatPoint;
     public float _pauseBfrClimbing;
     private float _pauseBfrClimbingTime;
+    
 
 
     private Color _origColor;
@@ -247,6 +252,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void Dash()
+    {
+        if (!_isRoll && _checkGround._ground && _canRoll)
+        {
+            StartCoroutine(DashCrt());
+        }
+    }
+
     public void Ladder()
     {
         if (!gameObject.CompareTag("SquirrelPlayer") && !gameObject.CompareTag("SnakePlayer")) 
@@ -297,12 +310,32 @@ public class PlayerController : MonoBehaviour
     IEnumerator RollingCrt()
     {
         _isRoll = true;
-
-        print(_isRoll);
+       
         var rollDirection = Mathf.Sign(transform.lossyScale.x);
         _rigidBody.linearVelocity = new Vector2(_rollSpeed * rollDirection, _rigidBody.linearVelocity.y);
 
         yield return new WaitForSeconds(_rollTime);
+
+        _isRoll = false;
+
+        _reloadScale.Reload();
+    }
+
+    IEnumerator DashCrt() 
+    {
+        _isRoll = true;
+        float timePassed = 0;
+
+        while (timePassed < _beforeDashAnimationTiming) 
+        {
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+
+        var rollDirection = Mathf.Sign(transform.lossyScale.x);
+        _rigidBody.linearVelocity = new Vector2(_dashSpeed * rollDirection, _rigidBody.linearVelocity.y);
+
+        yield return new WaitForSeconds(_dashTime);
 
         _isRoll = false;
 

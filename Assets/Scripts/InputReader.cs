@@ -31,6 +31,11 @@ public class InputReader : MonoBehaviour
         if (parameter.started) { _playerController.Roll(); }
     }
 
+    public void OnDash(InputAction.CallbackContext parameter)
+    {
+        if (parameter.started) { _playerController.Dash(); }
+    }
+
     public void OnJump(InputAction.CallbackContext parameter)
     {
         if (parameter.performed) { _playerController.CommonJump(); }
