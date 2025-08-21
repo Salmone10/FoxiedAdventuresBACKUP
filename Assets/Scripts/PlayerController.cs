@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public float _climbingSpeed; // dont include Squirrel
     public bool _isCanMove = true;
     [SerializeField] public bool _isClimbing = false;
-
 
     [Header("Damage (hurt) eff settings")]
     public float _colorFadeTime;
@@ -76,6 +77,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private enum WallSide { None, Left, Right };
     [SerializeField] private WallSide _wallSide = WallSide.None;
 
+    [SerializeField] public Collider2D _player;
+    [SerializeField] public Collider2D _enemy;
 
     void Start()
     {
@@ -317,12 +320,12 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(_rollTime);
 
         _isRoll = false;
-
         _reloadScale.Reload();
     }
-
     IEnumerator DashCrt() 
     {
+        Physics2D.IgnoreCollision(_enemy, _player);
+
         _isRoll = true;
         float timePassed = 0;
 
