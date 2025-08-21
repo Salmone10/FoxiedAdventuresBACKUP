@@ -34,10 +34,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _isInteract = false;
 
     [Header("Snake player")]
-    public float _dashTime;
-    public float _dashSpeed;
-    public float _beforeDashAnimationTiming;
-
     public float _raycastLenth;
     public LayerMask _raycastLayerMaskColission;
     public bool _isCanMoveOnWall;
@@ -45,6 +41,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Transform _raycatPoint;
     public float _pauseBfrClimbing;
     private float _pauseBfrClimbingTime;
+
+    [Header("Dash")]
+    public float _dashTime;
+    public float _dashSpeed;
+    public float _beforeDashAnimationTiming;
+    [SerializeField] private LayerMask _dashLayers;
+    private Dictionary<int, bool> _layerIgnores = new();
     
 
 
@@ -77,8 +80,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private enum WallSide { None, Left, Right };
     [SerializeField] private WallSide _wallSide = WallSide.None;
 
-    [SerializeField] public Collider2D _player;
-    [SerializeField] public Collider2D _enemy;
 
     void Start()
     {
@@ -322,12 +323,26 @@ public class PlayerController : MonoBehaviour
         _isRoll = false;
         _reloadScale.Reload();
     }
+
     IEnumerator DashCrt() 
     {
-        Physics2D.IgnoreCollision(_enemy, _player);
 
         _isRoll = true;
         float timePassed = 0;
+
+        var playerLayer = gameObject.layer;
+        _layerIgnores.Clear();
+
+        for (var layer = 0; layer < 32; layer++)
+        {
+            if ((_dashLayers.value & (1 << layer)) == 0) continue;
+
+            var wasIgnored = Physics2D.GetIgnoreLayerCollision(playerLayer, layer);
+            _layerIgnores[layer] = wasIgnored;
+
+            Physics2D.IgnoreLayerCollision(playerLayer, layer, true);
+        }
+
 
         while (timePassed < _beforeDashAnimationTiming) 
         {
@@ -339,6 +354,13 @@ public class PlayerController : MonoBehaviour
         _rigidBody.linearVelocity = new Vector2(_dashSpeed * rollDirection, _rigidBody.linearVelocity.y);
 
         yield return new WaitForSeconds(_dashTime);
+
+        foreach (var layer in _layerIgnores)
+        {
+            Physics2D.IgnoreLayerCollision(playerLayer, layer.Key, layer.Value);
+        }
+        _layerIgnores.Clear();
+
 
         _isRoll = false;
 
