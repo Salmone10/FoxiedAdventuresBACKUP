@@ -280,11 +280,23 @@ public class PlayerController : MonoBehaviour
         _isChargingJump = true;
         _chargeTime = 0f;
         _uiShowTime = 0f;
+
+        _chargeSlider.value = 0f;
     }
 
     public void ReleaseChargeJump()
     {
+        if (!_isChargingJump || !gameObject.CompareTag("SnakePlayer")) return;
 
+        var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);
+        t = Mathf.Clamp01(t);
+
+        var impulse = Mathf.Lerp(_minJumpImpuls, _maxJumpImpuls, t);
+
+        _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, 0f);
+        _rigidBody.AddForce(Vector2.up * impulse, ForceMode2D.Impulse); 
+
+        _counterJump = Mathf.Max(0, _counterJump - 1);
     }
 
     public void Roll()
