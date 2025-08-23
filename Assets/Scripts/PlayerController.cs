@@ -88,6 +88,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private enum WallSide { None, Left, Right };
     [SerializeField] private WallSide _wallSide = WallSide.None;
 
+    [Header("Snake jump")]
+
+    [SerializeField] private int _maxJumps;
+    [SerializeField] private float _minJumpImpuls;
+    [SerializeField] private float _maxJumpImpuls;
+    [SerializeField] private float _minChargeTime;
+    [SerializeField] private float _maxChargeTime;
+    [SerializeField] private float _chargeUIShowDelay;
+    [SerializeField] private Slider _chargeSlider;
+
+    private bool _isChargingJump;
+    private float _chargeTime;
+    private float _uiShowTime;
+    private int _counterJump;
+
 
     void Start()
     {
@@ -101,6 +116,8 @@ public class PlayerController : MonoBehaviour
         _enemySaver = GetComponent<EnemySaver>();
         _origColor = _spriteRenderer.color;
         _tempSpeed = _speed;
+
+        _counterJump = _maxJumps;
     }
 
     private void Update()
