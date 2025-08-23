@@ -17,10 +17,14 @@ public class PlayerController : MonoBehaviour
     public bool _isCanMove = true;
     [SerializeField] public bool _isClimbing = false;
 
+
+
     [Header("Damage (hurt) eff settings")]
     public float _colorFadeTime;
     public float _blinkingSpeed;
     public float _blinkingTime;
+
+
 
     [Header("Squirrel player")]
     public float _rollTime;
@@ -29,9 +33,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool _canRoll = true;
     [SerializeField] public bool _isRollLocked = false;
 
+
+
     [Header("Interactions")]
     public float _interactionRadius;
     [SerializeField] public bool _isInteract = false;
+
+
 
     [Header("Snake player")]
     public float _raycastLenth;
