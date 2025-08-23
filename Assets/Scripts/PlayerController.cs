@@ -273,6 +273,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void StartChargeJump()
+    {
+        if (_counterJump <= 0 || _isRoll || gameObject.CompareTag("SnakePlayer") || !_checkGround._ground || _isClimbingOnWall) return;
+
+        _isChargingJump = true;
+        _chargeTime = 0f;
+        _uiShowTime = 0f;
+    }
+
+    public void ReleaseChargeJump()
+    {
+
+    }
+
     public void Roll()
     {
         if (!_isRoll && _checkGround._ground && _canRoll)

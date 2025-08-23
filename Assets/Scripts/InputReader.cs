@@ -38,6 +38,19 @@ public class InputReader : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext parameter)
     {
+        if (_playerController.CompareTag())
+        {
+            if (parameter.started)
+            {
+
+            }
+            else if (parameter.canceled)
+            {
+
+            }
+            return;
+        }
+
         if (parameter.performed) { _playerController.CommonJump(); }
     }
 
