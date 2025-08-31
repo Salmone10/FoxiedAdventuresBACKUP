@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : MonoBehaviour
@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     public float _pauseBfrClimbing;
     private float _pauseBfrClimbingTime;
 
+
+
     [Header("Dash")]
     public float _dashTime;
     public float _dashSpeed;
@@ -89,14 +91,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private WallSide _wallSide = WallSide.None;
 
     [Header("Snake jump")]
-
     [SerializeField] private int _maxJumps;
     [SerializeField] private float _minJumpImpuls;
     [SerializeField] private float _maxJumpImpuls;
     [SerializeField] private float _minChargeTime;
     [SerializeField] private float _maxChargeTime;
     [SerializeField] private float _chargeUIShowDelay;
-    [SerializeField] private Slider _chargeSlider;
+    [SerializeField] public Image _chargeScale;
 
     private bool _isChargingJump;
     private float _chargeTime;
@@ -128,10 +129,9 @@ public class PlayerController : MonoBehaviour
         if (!_isRollLocked) { _canRoll = _checkGround._ground && _direction.x == 0 && !_isRoll; }
         if (_checkGround._ground) { _spriteRenderer.flipY = false; }
         if (MathF.Abs(y_location) < infelicity) { y_location = 0f; }
+        if (_isRoll) return;
 
         _animator.SetFloat("y_location", y_location);
-
-        if (_isRoll) return;
 
         if (_direction.x != 0)
         {
@@ -150,6 +150,17 @@ public class PlayerController : MonoBehaviour
         
         _animator.SetBool("is_ground", _checkGround._ground);
         _animator.SetBool("is_running", _direction.x != 0);
+
+        if (_isChargingJump) 
+        {
+            _chargeTime += Time.deltaTime;
+
+            var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);
+            t = Mathf.Clamp01(t);
+
+            
+
+        }
 
         if (_isCanMove)
         {
@@ -281,7 +292,7 @@ public class PlayerController : MonoBehaviour
         _chargeTime = 0f;
         _uiShowTime = 0f;
 
-        _chargeSlider.value = 0f;
+        //_chargeScale.fill = 0f;
     }
 
     public void ReleaseChargeJump()
@@ -297,6 +308,7 @@ public class PlayerController : MonoBehaviour
         _rigidBody.AddForce(Vector2.up * impulse, ForceMode2D.Impulse); 
 
         _counterJump = Mathf.Max(0, _counterJump - 1);
+        _isChargingJump = false;
     }
 
     public void Roll()

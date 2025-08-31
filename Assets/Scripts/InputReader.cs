@@ -38,15 +38,17 @@ public class InputReader : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext parameter)
     {
-        if (_playerController.CompareTag())
+        if (_playerController.CompareTag("SnakePlayer"))
         {
             if (parameter.started)
             {
-
+                _playerController.StartChargeJump();
+                print("StartCHARGE");
             }
             else if (parameter.canceled)
             {
-
+                _playerController.ReleaseChargeJump();
+                print("Release");
             }
             return;
         }
