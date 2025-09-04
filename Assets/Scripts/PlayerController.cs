@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxChargeTime;
     [SerializeField] private float _chargeUIShowDelay;
     [SerializeField] public Image _chargeScale;
+    [SerializeField] public GameObject _PlayerCanvasEMPTYPARENT;
 
     private bool _isChargingJump;
     private float _chargeTime;
@@ -130,6 +131,8 @@ public class PlayerController : MonoBehaviour
         if (_checkGround._ground) { _spriteRenderer.flipY = false; }
         if (MathF.Abs(y_location) < infelicity) { y_location = 0f; }
         if (_isRoll) return;
+        if (gameObject.CompareTag("SnakePlayer")) { _PlayerCanvasEMPTYPARENT.transform.localScale = new Vector2(1, 1); }
+
 
         _animator.SetFloat("y_location", y_location);
 
@@ -137,7 +140,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!_isClimbingOnWall)
             {
-                transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1); //������� ������
+                transform.localScale = new Vector2(Mathf.Sign(_direction.x), 1);
             }
             else 
             {
@@ -158,9 +161,9 @@ public class PlayerController : MonoBehaviour
             var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);
             t = Mathf.Clamp01(t);
 
-            
-
-        }
+            _chargeScale.fillAmount = t;
+            print(t);
+        }              
 
         if (_isCanMove)
         {
@@ -286,17 +289,19 @@ public class PlayerController : MonoBehaviour
 
     public void StartChargeJump()
     {
-        if (_counterJump <= 0 || _isRoll || gameObject.CompareTag("SnakePlayer") || !_checkGround._ground || _isClimbingOnWall) return;
+       
+        if (_counterJump <= 0 || _isRoll || !gameObject.CompareTag("SnakePlayer") || !_checkGround._ground || _isClimbingOnWall) return;
 
         _isChargingJump = true;
         _chargeTime = 0f;
         _uiShowTime = 0f;
 
-        //_chargeScale.fill = 0f;
+        _chargeScale.fillAmount = 1f;
     }
 
     public void ReleaseChargeJump()
     {
+        
         if (!_isChargingJump || !gameObject.CompareTag("SnakePlayer")) return;
 
         var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);

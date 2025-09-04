@@ -20803,6 +20803,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &758600760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 758600761}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &758600761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758600760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 394.0788, y: 108.35602, z: 0.9083569}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &762311014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21367,7 +21398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 88.2, y: 23.8}
+  m_AnchoredPosition: {x: 83.1, y: 23.8}
   m_SizeDelta: {x: 71.89, y: 7.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931564766
@@ -27486,7 +27517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 502, y: 212}
+  m_AnchoredPosition: {x: 504.47, y: 211.131}
   m_SizeDelta: {x: 990, y: 453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1347595409
@@ -29846,12 +29877,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _maxJumps
-      value: 5
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _dashSpeed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: _chargeScale
+      value: 
+      objectReference: {fileID: 574252355}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _raycatPoint
       value: 
@@ -30378,3 +30413,4 @@ SceneRoots:
   - {fileID: 1339609840}
   - {fileID: 1235335573}
   - {fileID: 1968325589}
+  - {fileID: 758600761}

@@ -43,12 +43,10 @@ public class InputReader : MonoBehaviour
             if (parameter.started)
             {
                 _playerController.StartChargeJump();
-                print("StartCHARGE");
             }
             else if (parameter.canceled)
             {
                 _playerController.ReleaseChargeJump();
-                print("Release");
             }
             return;
         }
