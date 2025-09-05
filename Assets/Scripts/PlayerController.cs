@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private WallSide _wallSide = WallSide.None;
 
     [Header("Snake jump")]
-    [SerializeField] private int _maxJumps;
     [SerializeField] private float _minJumpImpuls;
     [SerializeField] private float _maxJumpImpuls;
     [SerializeField] private float _minChargeTime;
@@ -102,8 +101,6 @@ public class PlayerController : MonoBehaviour
     private bool _isChargingJump;
     private float _chargeTime;
     private float _uiShowTime;
-    private int _counterJump;
-
 
     void Start()
     {
@@ -117,8 +114,6 @@ public class PlayerController : MonoBehaviour
         _enemySaver = GetComponent<EnemySaver>();
         _origColor = _spriteRenderer.color;
         _tempSpeed = _speed;
-
-        _counterJump = _maxJumps;
     }
 
     private void Update()
@@ -288,18 +283,17 @@ public class PlayerController : MonoBehaviour
     public void StartChargeJump()
     {
        
-        if (_counterJump <= 0 || _isRoll || !gameObject.CompareTag("SnakePlayer") || !_checkGround._ground || _isClimbingOnWall) return;
+        if (_isRoll || !gameObject.CompareTag("SnakePlayer") || !_checkGround._ground || _isClimbingOnWall) return;
 
         _isChargingJump = true;
         _chargeTime = 0f;
         _uiShowTime = 0f;
 
-        _chargeScale.fillAmount = 1f;
+        _chargeScale.fillAmount = 0f;
     }
 
     public void ReleaseChargeJump()
     {
-        
         if (!_isChargingJump || !gameObject.CompareTag("SnakePlayer")) return;
 
         var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);
@@ -310,8 +304,8 @@ public class PlayerController : MonoBehaviour
         _rigidBody.linearVelocity = new Vector2(_rigidBody.linearVelocity.x, 0f);
         _rigidBody.AddForce(Vector2.up * impulse, ForceMode2D.Impulse); 
 
-        _counterJump = Mathf.Max(0, _counterJump - 1);
         _isChargingJump = false;
+        _chargeScale.fillAmount = 0f;
     }
 
     public void Roll()

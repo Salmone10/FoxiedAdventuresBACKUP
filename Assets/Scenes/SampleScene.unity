@@ -29773,15 +29773,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _maxJumpImpuls
-      value: 500
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _minChargeTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _minJumpImpuls
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _pauseBfrClimbing
@@ -29789,7 +29789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _chargeUIShowDelay
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _wallCheckDistance
