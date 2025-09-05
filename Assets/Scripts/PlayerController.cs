@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         if (_checkGround._ground) { _spriteRenderer.flipY = false; }
         if (MathF.Abs(y_location) < infelicity) { y_location = 0f; }
         if (_isRoll) return;
-        if (gameObject.CompareTag("SnakePlayer")) { _PlayerCanvasEMPTYPARENT.transform.localScale = new Vector2(1, 1); }
+        if (gameObject.CompareTag("SnakePlayer")) { _PlayerCanvasEMPTYPARENT.transform.localScale = new Vector3(1, 1, 1); }
 
 
         _animator.SetFloat("y_location", y_location);
