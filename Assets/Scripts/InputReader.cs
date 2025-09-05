@@ -46,19 +46,12 @@ public class InputReader : MonoBehaviour
             }
             else if (parameter.canceled)
             {
-                if (parameter.duration < 0.5f)
-                {
-                    _playerController.CommonJump();
-                }
-                else {  _playerController.ReleaseChargeJump(); }  
+                _playerController.ReleaseChargeJump();
             }
             return;
         }
-        else
-        {
-            if (parameter.performed) { _playerController.CommonJump(); } 
-        }
-        
+
+        if (parameter.performed) { _playerController.CommonJump(); }
     }
 
     public void OnClawStriking(InputAction.CallbackContext parameter)

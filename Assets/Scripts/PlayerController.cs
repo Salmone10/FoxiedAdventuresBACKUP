@@ -154,8 +154,7 @@ public class PlayerController : MonoBehaviour
             var t = Mathf.InverseLerp(_minChargeTime, _maxChargeTime, _chargeTime);
             t = Mathf.Clamp01(t);
 
-            _chargeScale.fillAmount = t;
-            print(t);
+            _chargeScale.fillAmount = t; 
         }              
 
         if (_isCanMove)

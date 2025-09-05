@@ -18,7 +18,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "04e8f2e1-c17e-4936-bba3-c972ad337d6c",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +27,7 @@
                     "name": "Claw strike",
                     "type": "Button",
                     "id": "d0196847-10d3-4c1f-942f-cb0f0bd32982",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -166,7 +166,7 @@
                     "name": "",
                     "id": "97d82b2d-cecd-4871-b035-24aa9da8d4bc",
                     "path": "<Keyboard>/space",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.4,pressPoint=0.5)",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
@@ -216,7 +216,7 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "87f04c28-6650-497b-96dd-063b4078017d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -423,7 +423,7 @@
                     "name": "Roll",
                     "type": "Button",
                     "id": "d5f4995d-8d5f-4871-bba3-918ac6647305",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -432,9 +432,9 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "1ff8c42c-4316-4a5a-a4cc-0e4243db10e1",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=1,pressPoint=0.5)",
                     "initialStateCheck": false
                 },
                 {
