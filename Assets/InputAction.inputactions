@@ -166,7 +166,7 @@
                     "name": "",
                     "id": "97d82b2d-cecd-4871-b035-24aa9da8d4bc",
                     "path": "<Keyboard>/space",
-                    "interactions": "Hold(duration=0.4,pressPoint=0.5)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Jump",

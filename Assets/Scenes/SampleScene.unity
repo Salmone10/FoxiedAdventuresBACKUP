@@ -29752,6 +29752,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
+      propertyPath: _jumpPower
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _chargeScale
       value: 
       objectReference: {fileID: 574252355}
@@ -29773,7 +29777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _maxJumpImpuls
-      value: 300
+      value: 290
       objectReference: {fileID: 0}
     - target: {fileID: 3960876954691076820, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: _minChargeTime
@@ -30209,7 +30213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6088950494046578873, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8584827354779305248, guid: 0d3213ce3843bc14eb5548f85a291a65, type: 3}
       propertyPath: m_LocalPosition.x

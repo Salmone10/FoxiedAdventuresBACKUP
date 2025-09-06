@@ -11,6 +11,8 @@ public class InputReader : MonoBehaviour
     private VenomShooter _venomShooter;
     private Animator _animator;
 
+    private float _pressStartTime;
+
     void Start()
     {
         _playerController = GetComponent<PlayerController>();
@@ -42,16 +44,28 @@ public class InputReader : MonoBehaviour
         {
             if (parameter.started)
             {
+                _pressStartTime = Time.time;
                 _playerController.StartChargeJump();
             }
             else if (parameter.canceled)
             {
-                _playerController.ReleaseChargeJump();
+                if ((Time.time - _pressStartTime) < 0.5f) 
+                {
+                    _playerController.CommonJump();
+                }
+                else 
+                {
+                    _playerController.ReleaseChargeJump();
+                }
+                    
             }
             return;
         }
 
-        if (parameter.performed) { _playerController.CommonJump(); }
+        if (parameter.performed)
+        {
+            _playerController.CommonJump();
+        }
     }
 
     public void OnClawStriking(InputAction.CallbackContext parameter)
